@@ -8,6 +8,7 @@ function CustomRouter() {
     <Routes>
 
       <Route path="/" element={<Home />} />
+      
 
     </Routes>
   )
