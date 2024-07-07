@@ -20,6 +20,8 @@ function Featuredcategories() {
   }, []);
 
   return (
+    <div>
+      <h1 class="font-bold">Featured Categories</h1>
     <div class="container mx-auto flex  min-w-full max-h-70 ">
       {categories.map((cat) => (
         <div class="flex-col p-1 m-1.5 bg-light-blue" key={cat.id}>
@@ -28,6 +30,7 @@ function Featuredcategories() {
           <h1 class="text-sm font-medium ">{cat.quantity}</h1>
         </div>
       ))}
+    </div>
     </div>
   );
 }
