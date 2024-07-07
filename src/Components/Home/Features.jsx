@@ -1,0 +1,44 @@
+import pricetag from '../../Assets/Featuresimages/pricetag.svg'
+import freedelivery from '../../Assets/Featuresimages/freedelivery.svg'
+import deals from '../../Assets/Featuresimages/deals.svg'
+import returns from '../../Assets/Featuresimages/returns.svg'
+
+function Features() {
+    return(
+        <div class="flex flex-nowrap pl-60">
+
+            <div class="w-[320px] h-[100px] bg-green-100 rounded-lg border-2 border-green-300">
+                <img src={pricetag} class="float-left scale-100 pl-5 pt-3"></img>
+                <div class="pt-2 pl-32">
+                    <p class="text-xl text-black"><b><i>Best prices & offers</i></b></p> 
+                    <p class="text-base italic text-gray-500">Orders $50 or more</p>
+                </div>
+            </div>
+
+            <div class="w-[320px] h-[100px] bg-green-100 rounded-lg border-2 border-green-300">
+                <img src={freedelivery} class="float-left scale-100 pl-5 pt-3"></img>
+                <div class="pt-2 pl-32">
+                    <p class="text-xl text-black"><b><i>Free delivery</i></b></p> 
+                    <p class="text-base italic text-gray-500">24/7 amazing services</p>
+                </div>
+            </div>
+            
+            <div class="w-[320px] h-[100px] bg-green-100 rounded-lg border-2 border-green-300">
+                <img src={deals} class="float-left scale-100 pl-5 pt-3"></img>
+                <div class="pt-2 pl-32">
+                    <p class="text-xl text-black"><b><i>Great daily deal</i></b></p>
+                    <p class="text-base italic text-gray-500">When you sign up</p>
+                </div>
+            </div>
+            
+            <div class="w-[320px] h-[100px] bg-green-100 rounded-lg border-2 border-green-300 ">
+                <img src={returns} class="float-left scale-100 pl-5 pt-3"></img>
+                <div class="pt-2 pl-32">
+                    <p class="text-xl text-black"><b><i>Easy returns</i></b></p> 
+                    <p class="text-base italic text-gray-500">Within 30 days</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+export default Features
