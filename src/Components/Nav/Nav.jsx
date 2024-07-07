@@ -5,17 +5,18 @@ function Nav(){
     return(
         
         <div >
-            <div>
+            <div className="bg-green text-xl font-semibold text-white flex items-center justify-around">
 
                 <div>
                     <Link to='/'> <div >
+                        <h1>Ez Buy</h1>
                         {/* <img className="logo" src={logo} alt="" /> */}
                     </div> </Link>
                 </div>
 
                 <div>
 
-                    <div className="bg-green text-xl font-semibold text-white">
+                    <div >
                         <Link to='/'>  <button className="mx-8 my-5 ">Home</button> </Link>
                         
                         <Link to='/categories'> <button className="mx-8 my-5 ">Categories</button>  </Link>

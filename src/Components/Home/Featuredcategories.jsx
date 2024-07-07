@@ -16,6 +16,7 @@ function Featuredcategories() {
       console.log(val);
       setcategories(val);
     })
+    .catch((error) => console.error(error))
 
   }, []);
 
