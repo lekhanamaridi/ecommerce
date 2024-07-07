@@ -1,6 +1,8 @@
 import Nav from "../Nav/Nav"
 import HeroSection from "./HeroSection"
 import Featuredcategories from "./Featuredcategories"
+import Topproducts from "./Topproducts"
+
 
 function Home() {
   return (
@@ -8,6 +10,7 @@ function Home() {
       <Nav />
       <HeroSection />
       <Featuredcategories />
+      <Topproducts/>
     </div>
   )
 }
