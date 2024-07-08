@@ -3,6 +3,7 @@ import HeroSection from "./HeroSection"
 import Featuredcategories from "./Featuredcategories"
 import Topproducts from "./Topproducts"
 import Features from "./Features"
+import Footer from "./Footer"
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Featuredcategories />
       <Topproducts/>
       <Features />
+      <Footer />
     </div>
   )
 }
