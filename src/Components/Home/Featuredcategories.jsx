@@ -12,9 +12,9 @@ function Featuredcategories() {
       }
     )
     .then((res) => res.json())
-    .then((val) => {
-      console.log(val);
-      setcategories(val);
+    .then((data) => {
+      console.log(data);
+      setcategories(data);
     })
     .catch((error) => console.error(error))
 

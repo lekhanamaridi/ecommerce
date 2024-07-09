@@ -8,7 +8,7 @@ function Topproducts() {
     useEffect(()=>{
 
         
-        fetch( 'http://localhost:3000/topproducts',
+        fetch( `${process.env.REACT_APP_SERVER}/topproducts`,
             {
                 method:"POST",
                 headers: { 'Content-Type': 'application/json'},
