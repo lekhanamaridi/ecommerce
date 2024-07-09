@@ -28,7 +28,7 @@ function Topproducts() {
     
     return(
         <div>
-            <h1 class="text-3xl font-bold text-gray-900 m-4">Top Products</h1>
+            <h1 class="text-3xl font-bold text-gray-900 m-4 ml-24">Top Products</h1>
             <div class="container mx-auto flex flex-wrap min-w-full justify-center ">
             {
                 products.map((top)=>(
@@ -37,7 +37,7 @@ function Topproducts() {
 
                         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                        
-                            <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all" src={top.product_image} alt="product image" />
+                            <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all" src={top.product_image} alt="product" />
                         
                             <div class="px-5 pb-5">
                             

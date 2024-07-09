@@ -22,16 +22,16 @@ function Featuredcategories() {
 
   return (
     <div>
-      <h1 class="font-bold">Featured Categories</h1>
-    <div class="container mx-auto flex  min-w-full">
-      {categories.map((cat) => (
-        <div class="flex-col p-2 m-4 bg-light-blue w-96 rounded-lg " key={cat.id}>
-          <img class="min-w-full max-h-32" src={cat.images} alt="Products"></img>
-          <h1 class="text-base font-semibold ">{cat.name}</h1>
-          <h1 class="text-sm font-medium ">{cat.quantity}</h1>
+      <h1 class="text-3xl font-bold text-gray-900 m-4">Featured Categories</h1>
+        <div class="container mx-auto flex  min-w-full">
+          {categories.map((cat) => (
+            <div class="flex-col p-2 m-4 bg-light-blue w-96 rounded-lg " key={cat.id}>
+              <img class="min-w-full max-h-32" src={cat.images} alt="Products"></img>
+              <h1 class="text-base font-semibold ">{cat.name}</h1>
+              <h1 class="text-sm font-medium ">{cat.quantity}</h1>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
     </div>
   );
 }
