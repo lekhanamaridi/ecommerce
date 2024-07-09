@@ -8,7 +8,7 @@ function Topproducts() {
     useEffect(()=>{
 
         
-        fetch( 'http://localhost:3000/topproducts',
+        fetch( `${process.env.REACT_APP_SERVER}/topproducts`,
             {
                 method:"POST",
                 headers: { 'Content-Type': 'application/json'},
@@ -29,6 +29,7 @@ function Topproducts() {
     
     return(
         <div class="container mx-auto flex  min-w-full max-h-70 ">
+            top producrs
             {
                 products.map((top)=>(
                     <div class="flex-col p-1 m-1.5 bg-light-blue">
