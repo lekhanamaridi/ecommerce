@@ -23,8 +23,6 @@ function Topproducts() {
 
     },[])
 
-
-    
     
     return(
         <div>
