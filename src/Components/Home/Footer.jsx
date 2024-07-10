@@ -24,6 +24,7 @@ function Footer() {
 
             <div class="w-[500px] h-[500px] bg-light-blue">
                 <h1 class="text-5xl pl-32 pt-20 font-semibold">Quick Links</h1>
+                <p class="pl-6 italic text-black my-4 text-2xl">Home<br></br>Categories<br></br>About<br></br>Contact Us<br></br>Login</p>
             </div>
 
             <div class="w-[500px] h-[500px] bg-light-blue">
