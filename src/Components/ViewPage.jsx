@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Nav from './Nav/Nav'
 
 function ViewPage() {
 
@@ -30,6 +31,9 @@ function ViewPage() {
 
   return (
     <div>
+
+        <Nav/>
+
         <h1 class="text-3xl font-bold text-gray-900 m-4 ml-24">{category}</h1>
         <div class="container mx-auto flex flex-wrap min-w-full justify-center ">
             {
