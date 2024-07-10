@@ -44,7 +44,7 @@ function ViewPage() {
 
                         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                        
-                            <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all" src={top.images} alt={top.name} />
+                            <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all object-contain" src={top.images} alt={top.name} />
                         
                             <div class="px-5 pb-5">
 

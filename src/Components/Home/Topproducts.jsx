@@ -34,7 +34,7 @@ function Topproducts() {
 
                         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow s">
                        
-                            <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all" src={top.product_image} alt="product" />
+                            <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all object-contain" src={top.product_image} alt="product" />
                         
                             <div class="px-5 pb-5">
                             
