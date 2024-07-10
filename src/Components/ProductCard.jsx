@@ -1,7 +1,7 @@
 
 
 function ProductCard() {
-    
+
   return (
     <div className="flex bg-white rounded-lg shadow-md p-6  mx-auto">
       <div className="w-[700px]">
@@ -32,9 +32,7 @@ function ProductCard() {
           dolore impedit fuga eum eligendi.
         </p>
         <div className="flex items-center mb-4">
-          <label htmlFor="quantity" className="mr-2">
-            Quantity:
-          </label>
+          <label htmlFor="quantity" className="mr-2"> Quantity: </label>
           <input
             type="number"
             id="quantity"

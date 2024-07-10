@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Nav from './Nav/Nav'
+import { Link } from 'react-router-dom'
 
 function ViewPage() {
 
@@ -61,7 +62,7 @@ function ViewPage() {
 
                                 <div class="flex items-center justify-between">
                                     <span class="text-3xl font-bold text-gray-900 flex"> &#8377; {top.price}</span>
-                                    <button href="#" class="text-white bg-green hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy Now</button>
+                                    <Link to='/details'><button class="text-white bg-green hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Buy Now</button> </Link>
                                 </div>
                             </div>
                         </div>
