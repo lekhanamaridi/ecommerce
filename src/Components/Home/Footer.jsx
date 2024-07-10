@@ -9,21 +9,22 @@ function Footer() {
             <div class="w-[500px] h-[500px] bg-light-blue">
                 <h1 class="text-5xl pl-40 pt-20 font-semibold">EZ BUY</h1>
                 <div class="flex items-center ml-4 pt-3">
-                    <img src={location} class="w-[30px] h-[30px] my-3"></img>
+                    <img src={location} class="w-[30px] h-[30px] my-3" alt='location'></img>
                     <p class="pl-4 italic text-black text-lg">Address: STJIT, Ranebennur</p>
                 </div>
                 <div class="flex items-center ml-4">
-                    <img src={contact} class="w-[30px] h-[30px] my-3"></img>
+                    <img src={contact} class="w-[30px] h-[30px] my-3" alt='Contact'></img>
                     <p class="pl-4 italic text-black text-lg">Call Us: 9672574287</p>
                 </div>
                 <div class="flex items-center ml-4">
-                    <img src={email} class="w-[30px] h-[30px] my-3"></img>
+                    <img src={email} class="w-[30px] h-[30px] my-3" alt='email'></img>
                     <p class="pl-4 italic text-black text-lg">Email: ezbuy@gmail.com</p>
                 </div>
             </div>
 
             <div class="w-[500px] h-[500px] bg-light-blue">
                 <h1 class="text-5xl pl-32 pt-20 font-semibold">Quick Links</h1>
+                <p class="pl-6 italic text-black my-4 text-2xl">Home<br></br>Categories<br></br>About<br></br>Contact Us<br></br>Login</p>
             </div>
 
             <div class="w-[500px] h-[500px] bg-light-blue">
