@@ -7,7 +7,7 @@ function Contactus(){
                 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                     <h2 class="text-5xl font-bold mb-2 text-green-600 text-center">Contact Us</h2>
                     <p class="text-2xl font-normal mb-4 text-center text-green-600">Reach Out!!!!!</p>
-                    <form action="#" class="space-y-8">
+                    <form action="#" class="space-y-8 pl-16">
                     <div>
                         <label for="email" class="block mb-2 text-2xl font-bold text-gray-900 dark:text-gray-300">Your email</label>
                         <input type="email" id="email" class="rounded border border-green-300 text-sm  font-normal leading-[18px] text-green-600 appearance-none block h-15 w-[650px] m-0 p-[11px] focus:ring-2 ring-offset-2  ring-green-300 outline-0 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required></input>
