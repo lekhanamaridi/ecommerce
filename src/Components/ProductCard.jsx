@@ -34,7 +34,6 @@ function ProductCard() {
   return (
     <div>
       <Nav></Nav>
-      <h1>hi</h1>
       {
         products.map((product)=>(
           <div className="flex bg-white rounded-lg shadow-md p-6  mx-auto">

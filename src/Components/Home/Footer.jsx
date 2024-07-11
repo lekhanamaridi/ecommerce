@@ -57,23 +57,23 @@ function Footer() {
                 <h1 class="text-5xl pl-40 pt-20 font-semibold">Popular</h1>
                 <div class="flex items-center ml-4">
                     <img src={cloth} class="w-[40px] h-[40px] my-2" alt='cloth'></img>
-                    <p class="pl-2 italic text-black my-4 text-2xl">Clothes</p>
+                    <Link to='/products/clothes'><p class="pl-2 italic text-black my-4 text-2xl">Clothes</p></Link>
                 </div>
                 <div class="flex items-center ml-4">
                     <img src={electronic} class="w-[40px] h-[40px] my-3" alt='electronic'></img>
-                    <p class="pl-3 italic text-black my-4 text-2xl">Electronics</p>
+                    <Link to='/products/electronics'><p class="pl-3 italic text-black my-4 text-2xl">Electronics</p></Link>
                 </div>
                 <div class="flex items-center ml-4">
                     <img src={shoe} class="w-[40px] h-[40px] my-3" alt='shoe'></img>
-                    <p class="pl-2 italic text-black my-4 text-2xl">Footwear</p>
+                    <Link to='/products/footwears'><p class="pl-2 italic text-black my-4 text-2xl">Footwear</p></Link>
                 </div>
                 <div class="flex items-center ml-4">
                     <img src={watch} class="w-[40px] h-[40px] my-3" alt='watch'></img>
-                    <p class="pl-2 italic text-black my-4 text-2xl">Watches</p>
+                    <Link to='/products/watches'><p class="pl-2 italic text-black my-4 text-2xl">Watches</p></Link>
                 </div>
                 <div class="flex items-center ml-4">
                     <img src={mobile} class="w-[40px] h-[40px] my-3" alt='mobile'></img>
-                    <p class="pl-2 italic text-black my-4 text-2xl">Mobiles</p>
+                    <Link to='/products/mobiles'><p class="pl-2 italic text-black my-4 text-2xl">Mobiles</p></Link>
                 </div>
             </div>
         </div>
