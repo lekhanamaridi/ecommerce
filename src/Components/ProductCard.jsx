@@ -16,11 +16,11 @@ function ProductCard() {
         }
 
         fetch( `${process.env.REACT_APP_SERVER}/products`,
-            {
-              method:"POST",
-              body:JSON.stringify(bodyData),
-              headers: { 'Content-Type': 'application/json'},
-            },
+          {
+            method:"POST",
+            body:JSON.stringify(bodyData),
+            headers: { 'Content-Type': 'application/json'},
+          },
         )
         .then((res)=>res.json())
         .then((val)=>{
@@ -34,6 +34,7 @@ function ProductCard() {
   return (
     <div>
       <Nav></Nav>
+      <h1>hi</h1>
       {
         products.map((product)=>(
           <div className="flex bg-white rounded-lg shadow-md p-6  mx-auto">
