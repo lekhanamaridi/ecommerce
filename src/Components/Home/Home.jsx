@@ -4,6 +4,7 @@ import Featuredcategories from "./Featuredcategories"
 import Topproducts from "./Topproducts"
 import Features from "./Features"
 import Footer from "./Footer"
+import Login from "../Login/Login"
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <Topproducts/>
       <Features />
       <Footer />
+      <Login />
     </div>
   )
 }
