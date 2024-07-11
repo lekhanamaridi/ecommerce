@@ -38,7 +38,7 @@ function ProductCard() {
         <div className="w-[700px]">
         <img
           className="w-[100%] object-cover"
-          src="https://via.placeholder.com/400x600"
+          src={product.images}
           alt="Product"
         />
       </div>
