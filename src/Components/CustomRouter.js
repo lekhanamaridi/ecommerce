@@ -11,7 +11,7 @@ function CustomRouter() {
 
       <Route path="/" element={<Home />} />
       <Route path="/products/:category" element={<ViewPage />} />
-      <Route path="/details" element={<ProductCard />} />
+      <Route path="/details/:id" element={<ProductCard />} />
 
 
     </Routes>
