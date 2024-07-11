@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard";
 import Login from "./Login/Login";
 import Signup from "./Login/Signup";
 
+
 function CustomRouter() {
   return (
     
@@ -13,11 +14,9 @@ function CustomRouter() {
 
       <Route path="/" element={<Home />} />
       <Route path="/products/:category" element={<ViewPage />} />
-      <Route path="/details/:id" element={<ProductCard />} />
+      <Route path="/details/:category/:id" element={<ProductCard />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-
-
 
     </Routes>
   )

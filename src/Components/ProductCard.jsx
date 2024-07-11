@@ -5,25 +5,27 @@ import { Link } from 'react-router-dom'
 
 function ProductCard() {
 
-    let id=useParams()
+    let {category ,id}=useParams()
+
     let [products,setproducts] = useState([])
 
     useEffect(()=>{
         let bodyData = {
-          "id" : id
+          "id" : id,
+          "category" : category,
         }
 
         fetch( `${process.env.REACT_APP_SERVER}/products`,
-            {
-              method:"POST",
-              body:JSON.stringify(bodyData),
-              headers: { 'Content-Type': 'application/json'},
-            },
+          {
+            method:"POST",
+            body:JSON.stringify(bodyData),
+            headers: { 'Content-Type': 'application/json'},
+          },
         )
         .then((res)=>res.json())
         .then((val)=>{
-            console.log(val)
-            setproducts(val)
+          console.log(val)
+          setproducts(val)
         })
         .catch((error) => console.error(error))
     },[id])
@@ -32,6 +34,7 @@ function ProductCard() {
   return (
     <div>
       <Nav></Nav>
+      <h1>hi</h1>
       {
         products.map((product)=>(
           <div className="flex bg-white rounded-lg shadow-md p-6  mx-auto">
@@ -43,6 +46,7 @@ function ProductCard() {
         />
       </div>
       <div className="w-full pl-11 my-5">
+        <h1>{category}</h1>
         <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
         <div className="flex items-center mb-4">
           <div className="flex items-center">
@@ -79,8 +83,8 @@ function ProductCard() {
             Add to cart
           </button>
         </div>
-      </div>
-    </div>
+        </div>
+        </div>
         ))
       }
     </div>
