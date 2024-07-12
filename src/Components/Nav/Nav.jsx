@@ -5,11 +5,11 @@ function Nav(){
     return(
         
         <div >
-            <div className="bg-green text-xl font-semibold text-white flex items-center justify-around">
+            <div className="bg-green text-2xl font-semibold text-white flex items-center justify-around">
 
                 <div>
                     <Link to='/'> <div >
-                        <h1>Ez Buy</h1>
+                        <h1 class="text-5xl font-serif">Ez Buy</h1>
                         {/* <img className="logo" src={logo} alt="" /> */}
                     </div> </Link>
                 </div>
