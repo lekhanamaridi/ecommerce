@@ -26,6 +26,8 @@ function Nav(){
                         <Link to='/contactus'> <button className="mx-8 my-5 "> Contact us </button> </Link>
 
                         <Link to='/login'> <button className="mx-8 my-5"> Login </button> </Link>
+
+
                     </div>
                     
                 </div>
