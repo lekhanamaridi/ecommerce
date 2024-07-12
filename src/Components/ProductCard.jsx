@@ -75,9 +75,9 @@ function ProductCard() {
           />
         </div>
         <div className="flex space-x-2">
-          <button className="flex items-center px-4 py-2 bg-green-600 text-slate-950 rounded">
+          <Link to='/checkout'><button className="flex items-center px-4 py-2 bg-green-600 text-slate-950 rounded">
             Buy Now
-          </button>
+          </button></Link>
           <button className="flex items-center px-4 py-2 border rounded">
             Add to cart
           </button>

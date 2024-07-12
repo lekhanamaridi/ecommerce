@@ -6,6 +6,8 @@ import ProductCard from "./ProductCard";
 import Login from "./Login/Login";
 import Signup from "./Login/Signup";
 import Contactus from "./Contactus/Contactus";
+import Categories from "./Category/Categories";
+import Checkout from "./Checkout/Checkout";
 
 function CustomRouter() {
   return (
@@ -18,6 +20,8 @@ function CustomRouter() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/contactus" element={<Contactus />} />
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/checkout" element={<Checkout />} />
 
     </Routes>
   )
