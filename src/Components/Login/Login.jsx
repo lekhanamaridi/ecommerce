@@ -25,8 +25,8 @@ function Login(){
             .then((res) => res.json())
             .then((data) => {
             if (data.message) {
-                console.log(data.message);
-                if (data.message === "acess granted") {
+                alert(data.message);
+                if (data.message === "Login Successful") {
                 window.location.href = "/";
                 // alert('Login successfull')
                 }
