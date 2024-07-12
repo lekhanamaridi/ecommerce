@@ -29,7 +29,7 @@ function Categories() {
             <Link to={`/products/${cat.name}`}>
             <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg w-[280px] h-[280px]">
               <div class="relative pl-14">
-                <img class="w-[180px] h-[180px] " src={cat.images} alt="Products"></img>
+                <img class="w-[180px] h-[180px] aspect-w-4 aspect-h-5 object-contain" src={cat.images} alt="Products"></img>
               </div>
               <div class="text-center">
                 <div class="p-4 m-5">
