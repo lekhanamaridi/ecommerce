@@ -1,7 +1,9 @@
 function Checkout() {
   return (
     <div className="overflow-hidden">
-      <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">CheckOut</h1>
+      <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">
+        CheckOut
+      </h1>
       <section class="bg-white mt-[-40px] py-8 antialiased w-full md:py-16 pl-32">
         <form action="#" class="mx-auto max-w-screen-2xl px-4 2xl:px-0 ">
           <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
@@ -13,17 +15,29 @@ function Checkout() {
 
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label for="your_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Your name </label>
+                    <label
+                      for="your_name"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      {" "}
+                      Your name{" "}
+                    </label>
                     <input
-                      type="text" id="your_name"
+                      type="text"
+                      id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="Enter Your Name"  required />
+                      placeholder="Enter Your Name"
+                      required
+                    />
                   </div>
 
                   <div>
                     <label
-                      for="your_email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                      Your email* </label>
+                      for="your_email"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Your email*{" "}
+                    </label>
                     <input
                       type="email"
                       id="your_email"
@@ -37,7 +51,8 @@ function Checkout() {
                     <div class="mb-2 flex items-center gap-2">
                       <label
                         for="select-country-input-3"
-                        class="block text-sm font-medium text-gray-900 dark:text-white">
+                        class="block text-sm font-medium text-gray-900 dark:text-white"
+                      >
                         Country
                       </label>
                     </div>
@@ -64,13 +79,17 @@ function Checkout() {
                       id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter City"
-                      required />
+                      required
+                    />
                   </div>
 
                   <div>
                     <label
-                      for="pincode" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                    >  Pincode
+                      for="pincode"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      {" "}
+                      Pincode
                     </label>
 
                     <input
@@ -83,22 +102,26 @@ function Checkout() {
                   </div>
 
                   <div>
-                    <label for="phone-input-3"
-                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" >
+                    <label
+                      for="phone-input-3"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
                       Mobile Number*
                     </label>
                     <input
                       type="text"
                       id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="Enter Mobile number" required
+                      placeholder="Enter Mobile number"
+                      required
                     />
                   </div>
 
                   <div>
                     <label
                       for="vat_number"
-                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" >
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
                       Address
                     </label>
                     <input
@@ -147,7 +170,6 @@ function Checkout() {
                         </p>
                       </div>
                     </div>
-
                   </div>
 
                   <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
@@ -239,7 +261,6 @@ function Checkout() {
                           for="dhl"
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
-                        
                           &#8377;15 - DHL Fast Delivery
                         </label>
                         <p
@@ -353,7 +374,9 @@ function Checkout() {
                           <tr>
                             <th class="text-left font-semibold ">Product</th>
                             <th class="text-left font-semibold pl-10">Price</th>
-                            <th class="text-left font-semibold pl-10">Quantity</th>
+                            <th class="text-left font-semibold pl-10">
+                              Quantity
+                            </th>
                             <th class="text-left font-semibold ">Total</th>
                           </tr>
                         </thead>
@@ -361,22 +384,29 @@ function Checkout() {
                           <tr class="w-[500px]">
                             <td class="py-4">
                               <div class="flex items-center">
-                                <img class="h-16 w-16 mr-4" src="https://via.placeholder.com/150"
-                                alt="Product "></img>
+                                <img
+                                  class="h-16 w-16 mr-4"
+                                  src="https://via.placeholder.com/150"
+                                  alt="Product "
+                                ></img>
                                 <span class="font-semibold">Product name</span>
                               </div>
                             </td>
                             <td class="py-4 pl-10">&#8377;19.99</td>
-                              <td class="py-4">
-                                <div class="flex items-center pl-4">
-                                  <button class="border rounded-md py-2 px-4 mr-2">-</button>
-                                  <span class="text-center w-8">1</span>
-                                  <button class="border rounded-md py-2 px-4 ml-2">+</button>
-                                </div>
-                              </td>
-                              <td class="py-4 mx-4">&#8377;19.99</td>
-                            </tr>
-                            {/* <!-- More product rows --> */}
+                            <td class="py-4">
+                              <div class="flex items-center pl-4">
+                                <button class="border rounded-md py-2 px-4 mr-2">
+                                  -
+                                </button>
+                                <span class="text-center w-8">1</span>
+                                <button class="border rounded-md py-2 px-4 ml-2">
+                                  +
+                                </button>
+                              </div>
+                            </td>
+                            <td class="py-4 mx-4">&#8377;19.99</td>
+                          </tr>
+                          {/* <!-- More product rows --> */}
                         </tbody>
                       </table>
                     </div>
@@ -401,22 +431,22 @@ function Checkout() {
                         <span class="font-semibold">Total</span>
                         <span class="font-semibold">&#8377;21.98</span>
                       </div>
-                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">
+                        Checkout
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-              <div class="space-y-3">
-                <button
-                  type="submit"
-                  class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  Proceed to Payment
-                </button>
-
-                
-              </div>
-            {/* </div> */}
+            <div class="space-y-3">
+              <button
+                type="submit"
+                class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Proceed to Payment
+              </button>
+            </div>
           </div>
         </form>
       </section>
