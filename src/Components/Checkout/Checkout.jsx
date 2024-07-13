@@ -1,9 +1,37 @@
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Nav from '../Nav/Nav'
+
 function Checkout() {
+  let {category ,id}=useParams()
+
+    let [products,setproducts] = useState([])
+
+    useEffect(()=>{
+        let bodyData = {
+          "id" : id,
+          "category" : category,
+        }
+
+        fetch( `${process.env.REACT_APP_SERVER}/products`,
+          {
+            method:"POST",
+            body:JSON.stringify(bodyData),
+            headers: { 'Content-Type': 'application/json'},
+          },
+        )
+        .then((res)=>res.json())
+        .then((val)=>{
+          console.log(val)
+          setproducts(val)
+        })
+        .catch((error) => console.error(error))
+    },[id])
+
   return (
     <div className="overflow-hidden">
-      <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">
-        CheckOut
-      </h1>
+      <Nav/>
+      <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">CheckOut</h1>
       <section class="bg-white mt-[-40px] py-8 antialiased w-full md:py-16 pl-32">
         <form action="#" class="mx-auto max-w-screen-2xl px-4 2xl:px-0 ">
           <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
@@ -381,32 +409,30 @@ function Checkout() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="w-[500px]">
+                          {
+                            products.map((product)=>(
+                              <tr class="w-[500px]">
                             <td class="py-4">
                               <div class="flex items-center">
-                                <img
-                                  class="h-16 w-16 mr-4"
-                                  src="https://via.placeholder.com/150"
-                                  alt="Product "
-                                ></img>
-                                <span class="font-semibold">Product name</span>
+                                <img class="h-16 w-16 mr-4" src={product.images}
+                                alt="Product "></img>
+                                <span class="font-semibold">{product.name}</span>
                               </div>
                             </td>
                             <td class="py-4 pl-10">&#8377;19.99</td>
-                            <td class="py-4">
-                              <div class="flex items-center pl-4">
-                                <button class="border rounded-md py-2 px-4 mr-2">
-                                  -
-                                </button>
-                                <span class="text-center w-8">1</span>
-                                <button class="border rounded-md py-2 px-4 ml-2">
-                                  +
-                                </button>
-                              </div>
-                            </td>
-                            <td class="py-4 mx-4">&#8377;19.99</td>
-                          </tr>
-                          {/* <!-- More product rows --> */}
+                              <td class="py-4">
+                                <div class="flex items-center pl-4">
+                                  <button class="border rounded-md py-2 px-4 mr-2">-</button>
+                                  <span class="text-center w-8">1</span>
+                                  <button class="border rounded-md py-2 px-4 ml-2">+</button>
+                                </div>
+                              </td>
+                              <td class="py-4 mx-4">&#8377;19.99</td>
+                            </tr>
+                            ))
+                          }
+                          
+                            {/* <!-- More product rows --> */}
                         </tbody>
                       </table>
                     </div>
@@ -439,14 +465,15 @@ function Checkout() {
                 </div>
               </div>
             </div>
-            <div class="space-y-3">
-              <button
-                type="submit"
-                class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Proceed to Payment
-              </button>
-            </div>
+              <div class="space-y-3">
+                <button
+                  type="submit"
+                  class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  Proceed to Payment
+                </button>
+
+                
+              </div>
           </div>
         </form>
       </section>

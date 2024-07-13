@@ -21,11 +21,11 @@ function Nav(){
                         
                         <Link to='/categories'> <button className="mx-8 my-5 ">Categories</button>  </Link>
                         
-                        <Link to='/about'> <button className="mx-8 my-5 ">About</button> </Link>
-                        
                         <Link to='/contactus'> <button className="mx-8 my-5 "> Contact us </button> </Link>
 
                         <Link to='/login'> <button className="mx-8 my-5"> Login </button> </Link>
+
+                        <Link to='/checkout'> <button className="mx-8 my-5"> Checkout </button> </Link>
 
 
                     </div>
