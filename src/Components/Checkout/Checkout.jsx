@@ -1,55 +1,36 @@
-import { useState } from "react";
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Nav from '../Nav/Nav'
 
 function Checkout() {
-  let [name, setname] = useState("");
-  let [email, setemail] = useState("");
-  let [country, setcountry] = useState("");
-  let [city, setcity] = useState("");
-  let [pincode, setpincode] = useState("");
-  let [mobile, setmobile] = useState("");
-  let [address, setaddress] = useState("");
-  let [voucher, setvoucher] = useState("");
+  let {category ,id}=useParams()
 
-  function send() {
-    let data = {
-      name: name,
-      email: email,
-      country: country,
-      city: city,
-      pincode: pincode,
-      mobile: mobile,
-      address: address,
-      voucher: voucher
-    };
+    let [products,setproducts] = useState([])
 
-    try {
-      fetch(`${process.env.REACT_APP_SERVER}/checkout`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.message) {
-            //   console.log(data.message);
-            alert(data.message);
-            if (data.message === "Data entered") {
-              window.location.href = "/";
-            }
-          } else if (data.sqlMessage) {
-            //   console.log(data.sqlMessage);
-            alert(data.sqlMessage);
-          }
-          // console.log(data.results);
+    useEffect(()=>{
+        let bodyData = {
+          "id" : id,
+          "category" : category,
+        }
+
+        fetch( `${process.env.REACT_APP_SERVER}/products`,
+          {
+            method:"POST",
+            body:JSON.stringify(bodyData),
+            headers: { 'Content-Type': 'application/json'},
+          },
+        )
+        .then((res)=>res.json())
+        .then((val)=>{
+          console.log(val)
+          setproducts(val)
         })
-        .catch((error) => console.log(error));
-    } catch (error) {
-      console.log("error :", error);
-    }
-  }
+        .catch((error) => console.error(error))
+    },[id])
 
   return (
     <div className="overflow-hidden">
+      <Nav/>
       <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">CheckOut</h1>
       <section class="bg-white mt-[-40px] py-8 antialiased w-full md:py-16 pl-32">
         <form action="#" class="mx-auto max-w-screen-2xl px-4 2xl:px-0 ">
@@ -62,18 +43,29 @@ function Checkout() {
 
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label for="your_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Your name </label>
+                    <label
+                      for="your_name"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      {" "}
+                      Your name{" "}
+                    </label>
                     <input
-                      type="text" id="your_name"
+                      type="text"
+                      id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="Enter Your Name"  required
-                      onChange={(val) => setname(val.target.value)}/>
+                      placeholder="Enter Your Name"
+                      required
+                    />
                   </div>
 
                   <div>
                     <label
-                      for="your_email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                      Your email* </label>
+                      for="your_email"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Your email*{" "}
+                    </label>
                     <input
                       type="email"
                       id="your_email"
@@ -87,7 +79,8 @@ function Checkout() {
                     <div class="mb-2 flex items-center gap-2">
                       <label
                         for="select-country-input-3"
-                        class="block text-sm font-medium text-gray-900 dark:text-white">
+                        class="block text-sm font-medium text-gray-900 dark:text-white"
+                      >
                         Country
                       </label>
                     </div>
@@ -115,15 +108,17 @@ function Checkout() {
                       id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter City"
-                      required 
-                      onChange={(val) => setcity(val.target.value)}
-                      />
+                      required
+                    />
                   </div>
 
                   <div>
                     <label
-                      for="pincode" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                    >  Pincode
+                      for="pincode"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      {" "}
+                      Pincode
                     </label>
 
                     <input
@@ -137,23 +132,26 @@ function Checkout() {
                   </div>
 
                   <div>
-                    <label for="phone-input-3"
-                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" >
+                    <label
+                      for="phone-input-3"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
                       Mobile Number*
                     </label>
                     <input
                       type="text"
                       id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="Enter Mobile number" 
-                      onChange={(val) => setmobile(val.target.value)}
+                      placeholder="Enter Mobile number"
+                      required
                     />
                   </div>
 
                   <div>
                     <label
                       for="vat_number"
-                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" >
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    >
                       Address
                     </label>
                     <input
@@ -203,7 +201,6 @@ function Checkout() {
                         </p>
                       </div>
                     </div>
-
                   </div>
 
                   <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
@@ -295,7 +292,6 @@ function Checkout() {
                           for="dhl"
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
-                        
                           &#8377;15 - DHL Fast Delivery
                         </label>
                         <p
@@ -410,17 +406,21 @@ function Checkout() {
                           <tr>
                             <th class="text-left font-semibold ">Product</th>
                             <th class="text-left font-semibold pl-10">Price</th>
-                            <th class="text-left font-semibold pl-10">Quantity</th>
+                            <th class="text-left font-semibold pl-10">
+                              Quantity
+                            </th>
                             <th class="text-left font-semibold ">Total</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="w-[500px]">
+                          {
+                            products.map((product)=>(
+                              <tr class="w-[500px]">
                             <td class="py-4">
                               <div class="flex items-center">
-                                <img class="h-16 w-16 mr-4" src="https://via.placeholder.com/150"
+                                <img class="h-16 w-16 mr-4" src={product.images}
                                 alt="Product "></img>
-                                <span class="font-semibold">Product name</span>
+                                <span class="font-semibold">{product.name}</span>
                               </div>
                             </td>
                             <td class="py-4 pl-10">&#8377;19.99</td>
@@ -433,6 +433,9 @@ function Checkout() {
                               </td>
                               <td class="py-4 mx-4">&#8377;19.99</td>
                             </tr>
+                            ))
+                          }
+                          
                             {/* <!-- More product rows --> */}
                         </tbody>
                       </table>
@@ -458,7 +461,9 @@ function Checkout() {
                         <span class="font-semibold">Total</span>
                         <span class="font-semibold">&#8377;21.98</span>
                       </div>
-                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={send}>Checkout</button>
+                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">
+                        Checkout
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -473,7 +478,6 @@ function Checkout() {
 
                 
               </div>
-            {/* </div> */}
           </div>
         </form>
       </section>
