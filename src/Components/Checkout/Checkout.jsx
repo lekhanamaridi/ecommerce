@@ -1,4 +1,53 @@
+import { useState } from "react";
+
 function Checkout() {
+  let [name, setname] = useState("");
+  let [email, setemail] = useState("");
+  let [country, setcountry] = useState("");
+  let [city, setcity] = useState("");
+  let [pincode, setpincode] = useState("");
+  let [mobile, setmobile] = useState("");
+  let [address, setaddress] = useState("");
+  let [voucher, setvoucher] = useState("");
+
+  function send() {
+    let data = {
+      name: name,
+      email: email,
+      country: country,
+      city: city,
+      pincode: pincode,
+      mobile: mobile,
+      address: address,
+      voucher: voucher
+    };
+
+    try {
+      fetch(`${process.env.REACT_APP_SERVER}/checkout`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message) {
+            //   console.log(data.message);
+            alert(data.message);
+            if (data.message === "Data entered") {
+              window.location.href = "/";
+            }
+          } else if (data.sqlMessage) {
+            //   console.log(data.sqlMessage);
+            alert(data.sqlMessage);
+          }
+          // console.log(data.results);
+        })
+        .catch((error) => console.log(error));
+    } catch (error) {
+      console.log("error :", error);
+    }
+  }
+
   return (
     <div className="overflow-hidden">
       <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">CheckOut</h1>
@@ -17,7 +66,8 @@ function Checkout() {
                     <input
                       type="text" id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="Enter Your Name"  required />
+                      placeholder="Enter Your Name"  required
+                      onChange={(val) => setname(val.target.value)}/>
                   </div>
 
                   <div>
@@ -28,8 +78,8 @@ function Checkout() {
                       type="email"
                       id="your_email"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="name@gamil.com"
-                      required
+                      placeholder="name@gamil.com"required
+                      onChange={(val) => setemail(val.target.value)}
                     />
                   </div>
 
@@ -47,6 +97,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Contry"
                       required
+                      onChange={(val) => setcountry(val.target.value)}
                     />
                   </div>
 
@@ -56,7 +107,7 @@ function Checkout() {
                         for="select-city-input-3"
                         class="block text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        City*
+                        City
                       </label>
                     </div>
                     <input
@@ -64,7 +115,9 @@ function Checkout() {
                       id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter City"
-                      required />
+                      required 
+                      onChange={(val) => setcity(val.target.value)}
+                      />
                   </div>
 
                   <div>
@@ -79,6 +132,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Pincode"
                       required
+                      onChange={(val) => setpincode(val.target.value)}
                     />
                   </div>
 
@@ -91,7 +145,8 @@ function Checkout() {
                       type="text"
                       id="your_name"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="Enter Mobile number" required
+                      placeholder="Enter Mobile number" 
+                      onChange={(val) => setmobile(val.target.value)}
                     />
                   </div>
 
@@ -107,6 +162,7 @@ function Checkout() {
                       class="block w-[770px] rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
                       placeholder="Enter Street address"
                       required
+                      onChange={(val) => setaddress(val.target.value)}
                     />
                   </div>
                 </div>
@@ -330,6 +386,7 @@ function Checkout() {
                     id="voucher"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                     placeholder=""
+                    onChange={(val) => setvoucher(val.target.value)}                    
                   />
                   <button
                     type="button"
@@ -401,7 +458,7 @@ function Checkout() {
                         <span class="font-semibold">Total</span>
                         <span class="font-semibold">&#8377;21.98</span>
                       </div>
-                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={send}>Checkout</button>
                     </div>
                   </div>
                 </div>
