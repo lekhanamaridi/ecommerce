@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Nav from '../Nav/Nav'
 
 function Checkout() {
   let {category ,id}=useParams()
@@ -29,6 +30,7 @@ function Checkout() {
 
   return (
     <div className="overflow-hidden">
+      <Nav/>
       <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">CheckOut</h1>
       <section class="bg-white mt-[-40px] py-8 antialiased w-full md:py-16 pl-32">
         <form action="#" class="mx-auto max-w-screen-2xl px-4 2xl:px-0 ">
@@ -449,7 +451,6 @@ function Checkout() {
 
                 
               </div>
-            {/* </div> */}
           </div>
         </form>
       </section>
