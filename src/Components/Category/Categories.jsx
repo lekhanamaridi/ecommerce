@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Nav from '../Nav/Nav'
 
 function Categories() {
   let [categories, setcategories] = useState([]);
@@ -23,8 +24,9 @@ function Categories() {
 
   return (
     <div>
+      <Nav></Nav>
       <h1 class="text-5xl font-bold text-green-600 m-6 text-center">Categories</h1>
-        <div class="container mx-auto flex  min-w-full flex flex-wrap  justify-around gap-10 ">
+        <div class="container mx-auto min-w-full flex flex-wrap justify-around gap-8">
           {categories.map((cat) => (
             <Link to={`/products/${cat.name}`}>
             <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg w-[280px] h-[280px]">

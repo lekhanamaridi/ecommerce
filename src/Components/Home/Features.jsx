@@ -5,7 +5,7 @@ import returns from '../../Assets/Featuresimages/returns.svg'
 
 function Features() {
     return(
-        <div class="flex flex-wrap items-center justify-around my-4">
+        <div class="flex flex-wrap items-center justify-around my-4 mt-12">
 
             <div class="w-[320px] h-[100px] bg-green-100 rounded-lg border-2 border-green-500">
                 <img src={pricetag} alt='icon' class="float-left scale-100 pl-5 pt-3"></img>

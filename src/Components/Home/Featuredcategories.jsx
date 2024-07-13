@@ -22,16 +22,22 @@ function Featuredcategories() {
   }, []);
 
   return (
-    <div>
-      <h1 class="text-3xl font-bold text-gray-900 m-4">Featured Categories</h1>
-        <div class="container mx-auto flex  min-w-full">
+    <div className="mt-8">
+      <h1 class="text-3xl font-bold text-gray-900 m-4 ml-5">Featured Categories</h1>
+        <div class="container mx-auto flex  min-w-full justify-center">
           {categories.map((cat) => (
             <Link to={`/products/${cat.name}`}>
-            <div class="flex-col p-2 m-3.5  object-cover bg-light-blue rounded-lg " key={cat.id}>
-              <img class="max-w-32 max-h-32 " src={cat.images} alt="Products"></img>
-              <h1 class="text-base font-semibold ">{cat.name}</h1>
-              <h1 class="text-sm font-medium ">{cat.quantity}</h1>
-            </div>
+              <div class="max-w-md mx-2 rounded-md overflow-hidden shadow-md hover:shadow-lg w-[150px] h-[180px]text-wrap">
+                <div class="flex justify-center">
+                  <img class="w-[100px] h-[100px] aspect-w-4 aspect-h-5 object-contain hover:scale-110" src={cat.images} alt="Products"></img>
+                </div>
+                <div class="text-center ">
+                  <div class="p-4 m-0">
+                    <h4 class="text-xl font-bold mb-1">{cat.name}</h4>
+                    <h4 class="text-sm font-medium">{cat.quantity}</h4>
+                  </div>
+                </div>
+              </div>
             </Link>
           ))}
         </div>
