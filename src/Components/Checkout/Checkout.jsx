@@ -1,4 +1,32 @@
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
 function Checkout() {
+  let {category ,id}=useParams()
+
+    let [products,setproducts] = useState([])
+
+    useEffect(()=>{
+        let bodyData = {
+          "id" : id,
+          "category" : category,
+        }
+
+        fetch( `${process.env.REACT_APP_SERVER}/products`,
+          {
+            method:"POST",
+            body:JSON.stringify(bodyData),
+            headers: { 'Content-Type': 'application/json'},
+          },
+        )
+        .then((res)=>res.json())
+        .then((val)=>{
+          console.log(val)
+          setproducts(val)
+        })
+        .catch((error) => console.error(error))
+    },[id])
+
   return (
     <div className="overflow-hidden">
       <h1 class="text-5xl font-bold mt-10 text-green-600 text-center">CheckOut</h1>
@@ -358,12 +386,14 @@ function Checkout() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="w-[500px]">
+                          {
+                            products.map((product)=>(
+                              <tr class="w-[500px]">
                             <td class="py-4">
                               <div class="flex items-center">
-                                <img class="h-16 w-16 mr-4" src="https://via.placeholder.com/150"
+                                <img class="h-16 w-16 mr-4" src={product.images}
                                 alt="Product "></img>
-                                <span class="font-semibold">Product name</span>
+                                <span class="font-semibold">{product.name}</span>
                               </div>
                             </td>
                             <td class="py-4 pl-10">&#8377;19.99</td>
@@ -376,6 +406,9 @@ function Checkout() {
                               </td>
                               <td class="py-4 mx-4">&#8377;19.99</td>
                             </tr>
+                            ))
+                          }
+                          
                             {/* <!-- More product rows --> */}
                         </tbody>
                       </table>

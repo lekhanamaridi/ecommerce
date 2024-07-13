@@ -21,7 +21,7 @@ function CustomRouter() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/contactus" element={<Contactus />} />
       <Route path="/categories" element={<Categories />} />
-      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/checkout/:category/:id" element={<Checkout />} />
 
     </Routes>
   )
