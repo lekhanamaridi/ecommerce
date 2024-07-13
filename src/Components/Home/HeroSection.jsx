@@ -22,7 +22,7 @@ function HeroSection() {
             <div className=" bg-lime-100 my-4 h-[330px] w-[580px] rounded-lg p-8">
                 <h2 className='font-semibold text-2xl mt-4'>Discover Our Exquisite <br /> Watch Collection</h2> 
 
-                <img src={watch} alt="mobile" className='relative bg-clip-content w-72 float-right top-[-80px]' />
+                <img src={watch} alt="mobile" className='relative bg-clip-content w-72 float-right top-[-80px] right-[-24px]'/>
 
                 <button class=" my-10 w-[150px] font-medium bg-white h-[50px] flex items-center justify-center rounded-md cursor-pointer relative overflow-hidden transition-all duration-300 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-300 before:ease-in-out before:z-[-1] before:rounded-sm  hover:before:left-0 hover:text-white">
                     Shop Now
@@ -31,11 +31,11 @@ function HeroSection() {
 
             <div className=" bg-orange-100 my-4 h-[330px] w-[580px] rounded-lg p-8">
                 
-                <h2 className='font-semibold text-2xl'> Premium Sofa Collection for Ultimate Comfort</h2>
+                <h2 className='font-semibold text-2xl mt-2'> Premium Sofa Collection for Ultimate Comfort</h2>
 
-                <img src={sofa} alt="mobile" className='relative bg-clip-content w-[350px] float-right top-4' />
+                <img src={sofa} alt="mobile" className='relative bg-clip-content w-[365px] float-right top-8 right-[-30px]' />
 
-                <button class=" relative my-10 w-[150px] font-medium bg-white h-[50px]  flex items-center justify-center rounded-md cursor-pointer  overflow-hidden transition-all duration-300 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-300 before:ease-in-out before:z-[-1] before:rounded-sm  hover:before:left-0 hover:text-white">
+                <button class=" relative my-8 w-[150px] font-medium bg-white h-[50px]  flex items-center justify-center rounded-md cursor-pointer  overflow-hidden transition-all duration-300 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-300 before:ease-in-out before:z-[-1] before:rounded-sm  hover:before:left-0 hover:text-white">
                 Shop Now
                 </button>
 
