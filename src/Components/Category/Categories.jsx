@@ -24,7 +24,7 @@ function Categories() {
   return (
     <div>
       <h1 class="text-5xl font-bold text-green-600 m-6 text-center">Categories</h1>
-        <div class="container mx-auto flex  min-w-full flex flex-wrap  justify-around gap-10 ">
+        <div class="container mx-auto flex  min-w-full flex-wrap  justify-around gap-10 ">
           {categories.map((cat) => (
             <Link to={`/products/${cat.name}`}>
             <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg w-[280px] h-[280px]">

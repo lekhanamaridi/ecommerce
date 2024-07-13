@@ -1,11 +1,12 @@
 function Checkout() {
   return (
     <div>
-      <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-        <form action="#" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+      <h1 class="text-5xl font-bold mt-16 text-green-600 text-center">CheckOut!!!</h1>
+      <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16 pl-72">
+        <form action="#" class="mx-auto max-w-screen-2xl px-4 2xl:px-0 ">
 
           <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
-            <div class="min-w-0 flex-1 space-y-8">
+            <div class="min-w-0 flex-auto space-y-8">
               <div class="space-y-4">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
                   Delivery Details
@@ -168,23 +169,6 @@ function Checkout() {
                       </div>
                     </div>
 
-                    <div class="mt-4 flex items-center gap-2">
-                      <button
-                        type="button"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        Delete
-                      </button>
-
-                      <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
-
-                      <button
-                        type="button"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        Edit
-                      </button>
-                    </div>
                   </div>
 
                   <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
@@ -216,24 +200,6 @@ function Checkout() {
                         </p>
                       </div>
                     </div>
-
-                    <div class="mt-4 flex items-center gap-2">
-                      <button
-                        type="button"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        Delete
-                      </button>
-
-                      <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
-
-                      <button
-                        type="button"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        Edit
-                      </button>
-                    </div>
                   </div>
 
                   <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
@@ -264,24 +230,6 @@ function Checkout() {
                           Connect to your account
                         </p>
                       </div>
-                    </div>
-
-                    <div class="mt-4 flex items-center gap-2">
-                      <button
-                        type="button"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        Delete
-                      </button>
-
-                      <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
-
-                      <button
-                        type="button"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        Edit
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -403,7 +351,6 @@ function Checkout() {
                     id="voucher"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                     placeholder=""
-                    required
                   />
                   <button
                     type="button"
@@ -415,54 +362,73 @@ function Checkout() {
               </div>
             </div>
 
-            <div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
-              <div class="flow-root">
-                <div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
-                  <dl class="flex items-center justify-between gap-4 py-3">
-                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Subtotal
-                    </dt>
-                    <dd class="text-base font-medium text-gray-900 dark:text-white">
-                    &#8377;8,094.00
-                    </dd>
-                  </dl>
 
-                  <dl class="flex items-center justify-between gap-4 py-3">
-                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Savings
-                    </dt>
-                    <dd class="text-base font-medium text-green-500">0</dd>
-                  </dl>
 
-                  <dl class="flex items-center justify-between gap-4 py-3">
-                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Store Pickup
-                    </dt>
-                    <dd class="text-base font-medium text-gray-900 dark:text-white">
-                    &#8377;99
-                    </dd>
-                  </dl>
 
-                  <dl class="flex items-center justify-between gap-4 py-3">
-                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Tax
-                    </dt>
-                    <dd class="text-base font-medium text-gray-900 dark:text-white">
-                    &#8377;199
-                    </dd>
-                  </dl>
-
-                  <dl class="flex items-center justify-between gap-4 py-3">
-                    <dt class="text-base font-bold text-gray-900 dark:text-white">
-                      Total
-                    </dt>
-                    <dd class="text-base font-bold text-gray-900 dark:text-white">
-                    &#8377;8,392.00
-                    </dd>
-                  </dl>
+            <div class="flex flex-wrap">
+              <div class="container mx-auto px-4 pl-10">
+                <h1 class="text-xl font-semibold mb-4">Shopping Cart</h1>
+                <div class="flex flex-wrap md:flex-row gap-4">
+                  <div>
+                    <div class="bg-white rounded-lg shadow-md p-10 mb-4 ">
+                      <table class="w-[400px]">
+                        <thead>
+                          <tr>
+                            <th class="text-left font-semibold ">Product</th>
+                            <th class="text-left font-semibold pl-10">Price</th>
+                            <th class="text-left font-semibold pl-10">Quantity</th>
+                            <th class="text-left font-semibold ">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="w-[400px]">
+                            <td class="py-4">
+                              <div class="flex items-center">
+                                <img class="h-16 w-16 mr-4" src="https://via.placeholder.com/150" alt="Product image"></img>
+                                <span class="font-semibold">Product name</span>
+                              </div>
+                            </td>
+                            <td class="py-4 pl-10">$19.99</td>
+                              <td class="py-4">
+                                <div class="flex items-center pl-4">
+                                  <button class="border rounded-md py-2 px-4 mr-2">-</button>
+                                  <span class="text-center w-8">1</span>
+                                  <button class="border rounded-md py-2 px-4 ml-2">+</button>
+                                </div>
+                              </td>
+                              <td class="py-4 pl-">$19.99</td>
+                          </tr>
+                            {/* <!-- More product rows --> */}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class=" md:w-3/4 ">
+                    <div class="bg-white rounded-lg shadow-md p-6 w-[480px]">
+                      <h2 class="text-lg font-semibold mb-4">Summary</h2>
+                      <div class="flex justify-between mb-2">
+                        <span>Subtotal</span>
+                        <span>$19.99</span>
+                      </div>
+                      <div class="flex justify-between mb-2">
+                        <span>Taxes</span>
+                        <span>$1.99</span>
+                      </div>
+                      <div class="flex justify-between mb-2">
+                        <span>Shipping</span>
+                        <span>$0.00</span>
+                      </div>
+                      <hr class="my-2"></hr>
+                      <div class="flex justify-between mb-2">
+                        <span class="font-semibold">Total</span>
+                        <span class="font-semibold">$21.98</span>
+                      </div>
+                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-
+            </div>
               <div class="space-y-3">
                 <button
                   type="submit"
@@ -473,7 +439,7 @@ function Checkout() {
 
                 
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </form>
       </section>
