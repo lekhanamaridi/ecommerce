@@ -106,8 +106,8 @@ function Checkout() {
                       type="email"
                       id="your_email"
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="name@gamil.com"
-                      required
+                      placeholder="name@gamil.com"required
+                      onChange={(val) => setemail(val.target.value)}
                     />
                   </div>
 
@@ -126,6 +126,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Contry"
                       required
+                      onChange={(val) => setcountry(val.target.value)}
                     />
                   </div>
 
@@ -135,7 +136,7 @@ function Checkout() {
                         for="select-city-input-3"
                         class="block text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        City*
+                        City
                       </label>
                     </div>
                     <input
@@ -162,6 +163,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Pincode"
                       required
+                      onChange={(val) => setpincode(val.target.value)}
                     />
                   </div>
 
@@ -194,6 +196,7 @@ function Checkout() {
                       class="block w-[770px] rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
                       placeholder="Enter Street address"
                       required
+                      onChange={(val) => setaddress(val.target.value)}
                     />
                   </div>
                 </div>
@@ -415,6 +418,7 @@ function Checkout() {
                     id="voucher"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                     placeholder=""
+                    onChange={(val) => setvoucher(val.target.value)}                    
                   />
                   <button
                     type="button"
