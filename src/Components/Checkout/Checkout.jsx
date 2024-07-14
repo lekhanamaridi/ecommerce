@@ -5,6 +5,20 @@ import Nav from '../Nav/Nav'
 function Checkout() {
   let {category ,id}=useParams()
 
+
+  let [name, setname] = useState()
+  let [email,setemail] = useState()
+  let [country, setcountry] = useState()
+  let [city, setcity] = useState()
+  let [pincode, setpincode] = useState()
+  let [phone, setphone] = useState()
+  let [address, setaddress] = useState()
+  let [voucher , setvoucher] = useState()
+
+
+
+
+
   let [products,setproducts] = useState([])
 
   let [price , setprice] = useState()
@@ -12,6 +26,9 @@ function Checkout() {
   let [totalprice , settotalprice] = useState()
   let [totalquantity , settotalquantity] = useState(1)
   let [tax , settax] = useState(0)
+  let [Shipping ,setshipping] = useState(30)
+
+  let [totalamount , settotalamount] = useState()
 
   
   function minus(){
@@ -35,7 +52,10 @@ function Checkout() {
     let percent = totalprice * 0.05;
     settax(parseFloat(percent.toFixed(2)));
 
-  },[totalquantity , price , tax, totalprice])
+    const totalamount = parseInt(totalprice) + parseInt(tax) + parseInt(Shipping)
+    settotalamount(totalamount)
+
+  },[totalquantity , price , tax, totalprice , Shipping])
 
 
   useEffect(()=>{
@@ -264,7 +284,7 @@ function Checkout() {
                           id="pay-on-delivery-text"
                           class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
                         >
-                          +&#8377;40 payment processing fee
+                          pay cash on delivery
                         </p>
                       </div>
                     </div>
@@ -289,7 +309,7 @@ function Checkout() {
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
                           {" "}
-                          Paypal account{" "}
+                          Bank account{" "}
                         </label>
                         <p
                           id="paypal-text"
@@ -317,9 +337,9 @@ function Checkout() {
                           aria-describedby="dhl-text"
                           type="radio"
                           name="delivery-method"
-                          value=""
+                          value="30"
                           class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
-                          checked
+                          checked onClick={() => setshipping(30)}
                         />
                       </div>
 
@@ -328,7 +348,7 @@ function Checkout() {
                           for="dhl"
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
-                          &#8377;15 - DHL Fast Delivery
+                          &#8377;30 - DHL Fast Delivery
                         </label>
                         <p
                           id="dhl-text"
@@ -344,12 +364,13 @@ function Checkout() {
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
                         <input
+                          onClick={() => setshipping(0)}
                           id="fedex"
                           aria-describedby="fedex-text"
                           type="radio"
                           name="delivery-method"
-                          value=""
-                          class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
+                          value="0"
+                          class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600 p-4"
                         />
                       </div>
 
@@ -365,7 +386,7 @@ function Checkout() {
                           id="fedex-text"
                           class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
                         >
-                          Get it by 4 working days
+                          Get it by 7 working days
                         </p>
                       </div>
                     </div>
@@ -375,11 +396,12 @@ function Checkout() {
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
                         <input
+                          onClick={() => setshipping(80)}
                           id="express"
                           aria-describedby="express-text"
                           type="radio"
                           name="delivery-method"
-                          value=""
+                          value="80"
                           class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
                         />
                       </div>
@@ -390,7 +412,7 @@ function Checkout() {
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
                           {" "}
-                          &#8377;49 - Express Delivery{" "}
+                          &#8377;80 - Express Delivery{" "}
                         </label>
                         <p
                           id="express-text"
@@ -490,12 +512,12 @@ function Checkout() {
                       </div>
                       <div class="flex justify-between mb-2">
                         <span>Shipping</span>
-                        <span>&#8377;0.00</span>
+                        <span>&#8377;{Shipping}</span>
                       </div>
                       <hr class="my-2"></hr>
                       <div class="flex justify-between mb-2">
                         <span class="font-semibold">Total</span>
-                        <span class="font-semibold">&#8377;21.98</span>
+                        <span class="font-semibold">&#8377;{totalamount}</span>
                       </div>
                       <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">
                         Checkout
