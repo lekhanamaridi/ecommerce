@@ -4,10 +4,12 @@ import Featuredcategories from "./Featuredcategories"
 import Topproducts from "./Topproducts"
 import Features from "./Features"
 import Footer from "./Footer"
+import Searchbar from "../Search/Searchbar"
 
 function Home() {
   return (
     <div>
+      <Searchbar/>
       <Nav />
       <HeroSection />
       <Featuredcategories />

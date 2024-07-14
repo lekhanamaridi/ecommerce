@@ -8,6 +8,7 @@ import Signup from "./Login/Signup";
 import Contactus from "./Contactus/Contactus";
 import Categories from "./Category/Categories";
 import Checkout from "./Checkout/Checkout";
+import SearchResults from "./Search/SearchResults";
 
 function CustomRouter() {
   return (
@@ -22,7 +23,7 @@ function CustomRouter() {
       <Route path="/contactus" element={<Contactus />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/checkout/:category/:id/:quantity" element={<Checkout />} />
-
+      <Route path="/search/:query" element={<SearchResults/>} />
     </Routes>
   )
 }
