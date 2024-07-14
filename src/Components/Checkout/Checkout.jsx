@@ -15,6 +15,44 @@ function Checkout() {
   let [address, setaddress] = useState()
   let [voucher , setvoucher] = useState()
 
+  function send() {
+    let data = {
+      name: name,
+      email: email,
+      country: country,
+      city: city,
+      pincode: pincode,
+      phone: phone,
+      address: address,
+      voucher: voucher
+
+    };
+
+    try {
+      fetch(`${process.env.REACT_APP_SERVER}/checkout`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message) {
+            //   console.log(data.message);
+            alert(data.message);
+            if (data.message === "Data added successfully") {
+              window.location.href = "/";
+            }
+          } else if (data.sqlMessage) {
+            //   console.log(data.sqlMessage);
+            alert(data.sqlMessage);
+          }
+          // console.log(data.results);
+        })
+        .catch((error) => console.log(error));
+    } catch (error) {
+      console.log("error :", error);
+    }
+  }
 
 
   let [products,setproducts] = useState([])
