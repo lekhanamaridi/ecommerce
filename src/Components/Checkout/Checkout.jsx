@@ -3,79 +3,86 @@ import { useState, useEffect } from 'react'
 import Nav from '../Nav/Nav'
 
 function Checkout() {
-  let {category ,id}=useParams()
+  let {category ,id , quantity}=useParams()
 
-    let [products,setproducts] = useState([])
-    
 
-    useEffect(()=>{
-        let bodyData = {
-          "id" : id,
-          "category" : category,
-        }
+  let [name, setname] = useState()
+  let [email,setemail] = useState()
+  let [country, setcountry] = useState()
+  let [city, setcity] = useState()
+  let [pincode, setpincode] = useState()
+  let [phone, setphone] = useState()
+  let [address, setaddress] = useState()
+  let [voucher , setvoucher] = useState()
 
-        fetch( `${process.env.REACT_APP_SERVER}/products`,
-          {
-            method:"POST",
-            body:JSON.stringify(bodyData),
-            headers: { 'Content-Type': 'application/json'},
-          },
-        )
-        .then((res)=>res.json())
-        .then((val)=>{
-          console.log(val)
-          setproducts(val)
-        })
-        .catch((error) => console.error(error))
-    },[id])
 
-    let [name, setname] = useState("");
-    let [email, setemail] = useState("");
-    let [country, setcountry] = useState("");
-    let [city, setcity] = useState("");
-    let [pincode, setpincode] = useState("");
-    let [mobile, setmobile] = useState("");
-    let [address, setaddress] = useState("");
-    let [voucher, setvoucher] = useState("");
 
-    function send() {
-      let data = {
-        name: name,
-        email: email,
-        country: country,
-        city: city,
-        pincode: pincode,
-        mobile: mobile,
-        address: address,
-        voucher: voucher
-      };
+  let [products,setproducts] = useState([])
+
+  let [price , setprice] = useState()
+
+  let [totalprice , settotalprice] = useState()
+  let [totalquantity , settotalquantity] = useState(parseInt(quantity))
+  let [tax , settax] = useState(0)
+  let [Shipping ,setshipping] = useState(30)
+
+  let [totalamount , settotalamount] = useState()
+
   
-      try {
-        fetch(`${process.env.REACT_APP_SERVER}/checkout`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.message) {
-              //   console.log(data.message);
-              alert(data.message);
-              if (data.message === "Data entered") {
-                window.location.href = "/";
-              }
-            } else if (data.sqlMessage) {
-              //   console.log(data.sqlMessage);
-              alert(data.sqlMessage);
-            }
-            // console.log(data.results);
-          })
-          .catch((error) => console.log(error));
-      } catch (error) {
-        console.log("error :", error);
-      }
+  function minus(){
+    if(totalquantity <= 1){
+      settotalquantity(1)
+    } else{
+      settotalquantity(totalquantity - 1)
     }
-  
+  }
+
+  function add(){
+    settotalquantity(totalquantity + 1)
+  }
+
+  useEffect(() => {
+
+    let total = totalquantity * price
+    settotalprice(total.toFixed(2))
+
+    // Calculate 5% of total price for tax
+    let percent = totalprice * 0.05;
+    settax(parseFloat(percent.toFixed(2)));
+
+    // Calculate total checkout amount
+    const totalamount = parseInt(totalprice) + parseInt(tax) + parseInt(Shipping)
+    settotalamount(totalamount)
+
+  },[totalquantity , price , tax, totalprice , Shipping])
+
+
+  useEffect(()=>{
+    let bodyData = {
+      "id" : id,
+      "category" : category,
+    }
+
+    fetch( `${process.env.REACT_APP_SERVER}/products`,
+      {
+        method:"POST",
+        body:JSON.stringify(bodyData),
+        headers: { 'Content-Type': 'application/json'},
+      },
+    )
+    .then((res)=>res.json())
+    .then((val)=>{
+      console.log(val)
+      setproducts(val)
+      setprice(val[0].price)
+    })
+    .catch((error) => console.error(error))
+  },[id])
+
+  useEffect(() => {
+    settax((price * 0.05).toFixed(2));
+  }, [price]);
+
 
   return (
     <div className="overflow-hidden">
@@ -96,8 +103,7 @@ function Checkout() {
                       for="your_name"
                       class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      {" "}
-                      Your name{" "}
+                      Your name
                     </label>
                     <input
                       type="text"
@@ -106,7 +112,6 @@ function Checkout() {
                       placeholder="Enter Your Name"
                       required
                       onChange={(val) => setname(val.target.value)}
-
                     />
                   </div>
 
@@ -115,7 +120,7 @@ function Checkout() {
                       for="your_email"
                       class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Your email*{" "}
+                      Your email*
                     </label>
                     <input
                       type="email"
@@ -169,7 +174,6 @@ function Checkout() {
                       for="pincode"
                       class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      {" "}
                       Pincode
                     </label>
 
@@ -196,7 +200,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Mobile number"
                       required
-                      onChange={(val) => setmobile(val.target.value)}
+                      onChange={(val) => setphone(val.target.value)}
                     />
                   </div>
 
@@ -281,8 +285,8 @@ function Checkout() {
                           id="pay-on-delivery-text"
                           class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
                         >
-                          +&#8377;40 payment processing fee
-                        </p>
+                          pay cash on delivery
+                        </p> 
                       </div>
                     </div>
                   </div>
@@ -306,7 +310,7 @@ function Checkout() {
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
                           {" "}
-                          Paypal account{" "}
+                          Bank account{" "}
                         </label>
                         <p
                           id="paypal-text"
@@ -334,9 +338,9 @@ function Checkout() {
                           aria-describedby="dhl-text"
                           type="radio"
                           name="delivery-method"
-                          value=""
+                          value="30"
                           class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
-                          checked
+                          checked onClick={() => setshipping(30)}
                         />
                       </div>
 
@@ -345,7 +349,7 @@ function Checkout() {
                           for="dhl"
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
-                          &#8377;15 - DHL Fast Delivery
+                          &#8377;30 - DHL Fast Delivery
                         </label>
                         <p
                           id="dhl-text"
@@ -361,12 +365,13 @@ function Checkout() {
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
                         <input
+                          onClick={() => setshipping(0)}
                           id="fedex"
                           aria-describedby="fedex-text"
                           type="radio"
                           name="delivery-method"
-                          value=""
-                          class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
+                          value="0"
+                          class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600 p-4"
                         />
                       </div>
 
@@ -382,7 +387,7 @@ function Checkout() {
                           id="fedex-text"
                           class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
                         >
-                          Get it by 4 working days
+                          Get it by 7 working days
                         </p>
                       </div>
                     </div>
@@ -392,11 +397,12 @@ function Checkout() {
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
                         <input
+                          onClick={() => setshipping(80)}
                           id="express"
                           aria-describedby="express-text"
                           type="radio"
                           name="delivery-method"
-                          value=""
+                          value="80"
                           class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
                         />
                       </div>
@@ -407,7 +413,7 @@ function Checkout() {
                           class="font-medium leading-none text-gray-900 dark:text-white"
                         >
                           {" "}
-                          &#8377;49 - Express Delivery{" "}
+                          &#8377;80 - Express Delivery{" "}
                         </label>
                         <p
                           id="express-text"
@@ -476,15 +482,15 @@ function Checkout() {
                                 <span class="font-semibold">{product.name}</span>
                               </div>
                             </td>
-                            <td class="py-4 pl-10">&#8377;19.99</td>
+                            <td class="py-4 pl-10">&#8377;{product.price}</td>
                               <td class="py-4">
                                 <div class="flex items-center pl-4">
-                                  <button class="border rounded-md py-2 px-4 mr-2">-</button>
-                                  <span class="text-center w-8">1</span>
-                                  <button class="border rounded-md py-2 px-4 ml-2">+</button>
+                                  <button class="border rounded-md py-2 px-4 mr-2" onClick={minus}>-</button>
+                                  <span class="text-center w-8">{totalquantity}</span>
+                                  <button class="border rounded-md py-2 px-4 ml-2" onClick={add}>+</button>
                                 </div>
                               </td>
-                              <td class="py-4 mx-4">&#8377;19.99</td>
+                              <td class="py-4 mx-4">&#8377; {totalprice}</td>
                             </tr>
                             ))
                           }
@@ -499,20 +505,20 @@ function Checkout() {
                       <h2 class="text-lg font-semibold mb-4">Summary</h2>
                       <div class="flex justify-between mb-2">
                         <span>Subtotal</span>
-                        <span>&#8377;19.99</span>
+                        <span>&#8377; {totalprice}</span>
                       </div>
                       <div class="flex justify-between mb-2">
                         <span>Taxes</span>
-                        <span>&#8377;1.99</span>
+                        <span>&#8377;{tax}</span>
                       </div>
                       <div class="flex justify-between mb-2">
                         <span>Shipping</span>
-                        <span>&#8377;0.00</span>
+                        <span>&#8377;{Shipping}</span>
                       </div>
                       <hr class="my-2"></hr>
                       <div class="flex justify-between mb-2">
                         <span class="font-semibold">Total</span>
-                        <span class="font-semibold">&#8377;21.98</span>
+                        <span class="font-semibold">&#8377;{totalamount}</span>
                       </div>
                       <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={send}>
                         Checkout

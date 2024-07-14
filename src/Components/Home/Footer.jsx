@@ -20,39 +20,42 @@ function Footer() {
     };
 
     return(
-        <div class="flex flex-wrap items-center justify-around mb-4 bg-green text-white">
+        <div class="flex flex-wrap items-center justify-around bg-green text-white mt-10">
 
             <div class="w-[500px] h-[500px]">
-                <h1 class="text-5xl ml-40 mt-20 font-semibold">EZ BUY</h1>
-                <div class="flex items-center ml-4 pt-4">
-                    <img src={location} class="w-[30px] h-[30px] my-3" alt='location'></img>
-                    <p class="ml-4 text-xl">Address: STJIT, Ranebennur</p>
+                <h1 class="text-5xl ml-40 mt-14 font-semibold">EZ BUY</h1>
+                <div className="mt-10">
+                    <div class="flex items-center ml-4 pt-2">
+                        <img src={location} class="w-[30px] h-[30px] mt-3" alt='location'></img>
+                        <p class="ml-4 text-xl">Address: STJIT, Ranebennur</p>
+                    </div>
+                    <div class="flex items-center ml-4">
+                        <img src={contact} class="w-[30px] h-[30px] my-1" alt='Contact'></img>
+                        <p class="ml-4 text-xl">Call Us: 9672574287</p>
+                    </div>
+                    <div class="flex items-center ml-4">
+                        <img src={email} class="w-[30px] h-[30px] my-1" alt='email'></img>
+                        <p class="ml-4 text-xl">Email: ezbuy@gmail.com</p>
+                    </div>
                 </div>
-                <div class="flex items-center ml-4">
-                    <img src={contact} class="w-[30px] h-[30px] my-3" alt='Contact'></img>
-                    <p class="ml-4 text-xl">Call Us: 9672574287</p>
-                </div>
-                <div class="flex items-center ml-4">
-                    <img src={email} class="w-[30px] h-[30px] my-3" alt='email'></img>
-                    <p class="ml-4 text-xl">Email: ezbuy@gmail.com</p>
-                </div>
+                
             </div>
 
             <div class="w-[500px] h-[500px]">
-                <h1 class="text-5xl pl-32 pt-20 font-semibold">Quick Links</h1>
+                <h1 class="text-5xl  mt-14 ml-20 font-semibold">Quick Links</h1>
 
-                <button onClick={scrollToTop} class="pl-6 my-5 pt-3 text-2xl">Home</button>
+                <button onClick={scrollToTop} class=" ml-28 pl-6 my-5 pt-3 text-2xl">Home</button>
 
-                <Link to='/categories'><p class="pl-6 text-2xl ">Categories</p></Link>
+                <Link to='/categories'><p class="ml-28 pl-6 text-2xl ">Categories</p></Link>
 
-                <Link to='/contactus'><p class="pl-6 my-4 text-2xl">Contact Us</p></Link>
+                <Link to='/contactus'><p class="ml-28 pl-6 my-4 text-2xl">Contact Us</p></Link>
 
-                <Link to='/login'><p class="pl-6 my-4 text-2xl">Login</p></Link>
+                <Link to='/login'><p class="ml-28 pl-6 my-4 text-2xl">Login</p></Link>
             
             </div>
 
             <div class="w-[500px] h-[500px]">
-                <h1 class="text-5xl pl-40 pt-20 font-semibold">Popular</h1>
+                <h1 class="text-5xl pl-20 mt-14 font-semibold">Popular</h1>
                 <div class="flex items-center ml-4">
                     <img src={cloth} class="w-[40px] h-[40px] my-2" alt='cloth'></img>
                     <Link to='/products/clothes'><p class="pl-2 my-4 text-2xl">Clothes</p></Link>
