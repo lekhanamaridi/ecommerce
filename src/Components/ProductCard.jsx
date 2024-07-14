@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Nav from "./Nav/Nav";
 import { Link } from "react-router-dom";
+import Relatedproducts from "./Relatedproducts";
 
 function ProductCard() {
   let { category, id } = useParams();
@@ -94,6 +95,7 @@ function ProductCard() {
           </div>
         </div>
       ))}
+      <Relatedproducts></Relatedproducts>
     </div>
   );
 }
