@@ -5,7 +5,6 @@ import Nav from '../Nav/Nav'
 function Checkout() {
   let {category ,id , quantity}=useParams()
 
-
   let [name, setname] = useState()
   let [email,setemail] = useState()
   let [country, setcountry] = useState()
@@ -17,14 +16,14 @@ function Checkout() {
 
   function send() {
     let data = {
-      name: name,
-      email: email,
-      country: country,
-      city: city,
-      pincode: pincode,
-      phone: phone,
-      address: address,
-      voucher: voucher
+      "name": name,
+      "email": email,
+      "country": country,
+      "city": city,
+      "pincode": pincode,
+      "phone": phone,
+      "address": address,
+      "voucher": voucher
 
     };
 
@@ -115,7 +114,7 @@ function Checkout() {
       setprice(val[0].price)
     })
     .catch((error) => console.error(error))
-  },[id])
+  },[id, category])
 
   useEffect(() => {
     settax((price * 0.05).toFixed(2));

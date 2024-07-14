@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Searchbar() {
     let [query ,setquery] = useState()
-    
+
   return (
     <div className="my-4">
         <div class="flex items-center max-w-[30rem] mx-auto">
@@ -18,10 +18,10 @@ function Searchbar() {
                 />
             </div>
 
-            <Link to={`search/${query}`}>
+            <Link to={`/search/${query}`}>
             <button
             type="submit"
-            class="p-2.5 ms-2 text-sm font-medium text-white bg-green rounded-lg border border-blue-700 hover:bg-lime-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="p-2.5 ms-2 text-sm font-medium text-white bg-green rounded-lg border border-blue-700 hover:bg-teal focus:ring-4 focus:outline-none focus:ring-blue-300"
             >
             <svg class="w-4 h-4" aria-hidden="true"  xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 20 20">
@@ -30,7 +30,7 @@ function Searchbar() {
             </svg>
             </button>
            </Link>
-           
+
         </div>
     </div>
   );

@@ -28,7 +28,7 @@ function ProductCard() {
         setproducts(val);
       })
       .catch((error) => console.error(error));
-  }, [id]);
+  }, [id , category]);
 
   return (
     <div>
@@ -43,8 +43,8 @@ function ProductCard() {
             />
           </div>
           <div className="w-full pl-11 my-5">
-            <h1>{category}</h1>
-            <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
+            <h1 className="text-xl">{category}</h1>
+            <h1 className="text-5xl font-bold my-4">{product.name}</h1>
             <div className="flex items-center mb-4">
               <div className="flex items-center">
                 <svg
@@ -60,17 +60,16 @@ function ProductCard() {
               </div>
             </div>
             <div className="flex items-baseline mb-4">
-              <span className="text-3xl font-bold text-green-600 mr-2">
+              <span className="text-5xl font-bold text-green-600 mr-2">
                 &#8377; {product.price}
               </span>
               {/* <span className="text-gray-500 line-through">&#8377; 52</span> */}
               <span className="text-green-600 ml-2">24% Off</span>
             </div>
-            <p className="text-gray-700 mb-4">{product.description}</p>
+            <p className="text-gray-700 my-5 ">{product.description}</p>
             <div className="flex items-center mb-4">
               <label htmlFor="quantity" className="mr-2">
-                {" "}
-                Quantity:{" "}
+                Quantity:
               </label>
               <input
                 type="number"
@@ -84,7 +83,7 @@ function ProductCard() {
             </div>
             <div className="flex space-x-2 mt-8">
               <Link to={`/checkout/${category}/${id}/${quantity}`}>
-                <button className="flex items-center px-6 py-3 bg-green  text-white font-semibold rounded">
+                <button className="flex items-center px-6 py-3 bg-green  text-white font-semibold rounded hover:bg-teal transition-all">
                   Buy Now
                 </button>
               </Link>
