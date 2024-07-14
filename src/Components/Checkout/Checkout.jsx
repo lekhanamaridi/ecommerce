@@ -5,28 +5,65 @@ import Nav from '../Nav/Nav'
 function Checkout() {
   let {category ,id}=useParams()
 
-    let [products,setproducts] = useState([])
+  let [products,setproducts] = useState([])
 
-    useEffect(()=>{
-        let bodyData = {
-          "id" : id,
-          "category" : category,
-        }
+  let [price , setprice] = useState()
 
-        fetch( `${process.env.REACT_APP_SERVER}/products`,
-          {
-            method:"POST",
-            body:JSON.stringify(bodyData),
-            headers: { 'Content-Type': 'application/json'},
-          },
-        )
-        .then((res)=>res.json())
-        .then((val)=>{
-          console.log(val)
-          setproducts(val)
-        })
-        .catch((error) => console.error(error))
-    },[id])
+  let [totalprice , settotalprice] = useState()
+  let [totalquantity , settotalquantity] = useState(1)
+  let [tax , settax] = useState(0)
+
+  
+  function minus(){
+    if(totalquantity <= 1){
+      settotalquantity(1)
+    } else{
+      settotalquantity(totalquantity - 1)
+    }
+  }
+
+  function add(){
+    settotalquantity(totalquantity + 1)
+  }
+
+  useEffect(() => {
+
+    let total = totalquantity * price
+    settotalprice(total.toFixed(2))
+
+    // Calculate 5% of total price for tax
+    let percent = totalprice * 0.05;
+    settax(parseFloat(percent.toFixed(2)));
+
+  },[totalquantity , price , tax, totalprice])
+
+
+  useEffect(()=>{
+    let bodyData = {
+      "id" : id,
+      "category" : category,
+    }
+
+    fetch( `${process.env.REACT_APP_SERVER}/products`,
+      {
+        method:"POST",
+        body:JSON.stringify(bodyData),
+        headers: { 'Content-Type': 'application/json'},
+      },
+    )
+    .then((res)=>res.json())
+    .then((val)=>{
+      console.log(val)
+      setproducts(val)
+      setprice(val[0].price)
+    })
+    .catch((error) => console.error(error))
+  },[id])
+
+  useEffect(() => {
+    settax((price * 0.05).toFixed(2));
+  }, [price]);
+
 
   return (
     <div className="overflow-hidden">
@@ -47,8 +84,7 @@ function Checkout() {
                       for="your_name"
                       class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      {" "}
-                      Your name{" "}
+                      Your name
                     </label>
                     <input
                       type="text"
@@ -419,15 +455,15 @@ function Checkout() {
                                 <span class="font-semibold">{product.name}</span>
                               </div>
                             </td>
-                            <td class="py-4 pl-10">&#8377;19.99</td>
+                            <td class="py-4 pl-10">&#8377;{product.price}</td>
                               <td class="py-4">
                                 <div class="flex items-center pl-4">
-                                  <button class="border rounded-md py-2 px-4 mr-2">-</button>
-                                  <span class="text-center w-8">1</span>
-                                  <button class="border rounded-md py-2 px-4 ml-2">+</button>
+                                  <button class="border rounded-md py-2 px-4 mr-2" onClick={minus}>-</button>
+                                  <span class="text-center w-8">{totalquantity}</span>
+                                  <button class="border rounded-md py-2 px-4 ml-2" onClick={add}>+</button>
                                 </div>
                               </td>
-                              <td class="py-4 mx-4">&#8377;19.99</td>
+                              <td class="py-4 mx-4">&#8377; {totalprice}</td>
                             </tr>
                             ))
                           }
@@ -442,11 +478,11 @@ function Checkout() {
                       <h2 class="text-lg font-semibold mb-4">Summary</h2>
                       <div class="flex justify-between mb-2">
                         <span>Subtotal</span>
-                        <span>&#8377;19.99</span>
+                        <span>&#8377; {totalprice}</span>
                       </div>
                       <div class="flex justify-between mb-2">
                         <span>Taxes</span>
-                        <span>&#8377;1.99</span>
+                        <span>&#8377;{tax}</span>
                       </div>
                       <div class="flex justify-between mb-2">
                         <span>Shipping</span>
