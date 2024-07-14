@@ -6,6 +6,7 @@ function Checkout() {
   let {category ,id}=useParams()
 
     let [products,setproducts] = useState([])
+    
 
     useEffect(()=>{
         let bodyData = {
@@ -27,6 +28,54 @@ function Checkout() {
         })
         .catch((error) => console.error(error))
     },[id])
+
+    let [name, setname] = useState("");
+    let [email, setemail] = useState("");
+    let [country, setcountry] = useState("");
+    let [city, setcity] = useState("");
+    let [pincode, setpincode] = useState("");
+    let [mobile, setmobile] = useState("");
+    let [address, setaddress] = useState("");
+    let [voucher, setvoucher] = useState("");
+
+    function send() {
+      let data = {
+        name: name,
+        email: email,
+        country: country,
+        city: city,
+        pincode: pincode,
+        mobile: mobile,
+        address: address,
+        voucher: voucher
+      };
+  
+      try {
+        fetch(`${process.env.REACT_APP_SERVER}/checkout`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message) {
+              //   console.log(data.message);
+              alert(data.message);
+              if (data.message === "Data entered") {
+                window.location.href = "/";
+              }
+            } else if (data.sqlMessage) {
+              //   console.log(data.sqlMessage);
+              alert(data.sqlMessage);
+            }
+            // console.log(data.results);
+          })
+          .catch((error) => console.log(error));
+      } catch (error) {
+        console.log("error :", error);
+      }
+    }
+  
 
   return (
     <div className="overflow-hidden">
@@ -56,6 +105,8 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Your Name"
                       required
+                      onChange={(val) => setname(val.target.value)}
+
                     />
                   </div>
 
@@ -109,6 +160,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter City"
                       required
+                      onChange={(val) => setcity(val.target.value)}
                     />
                   </div>
 
@@ -144,6 +196,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Mobile number"
                       required
+                      onChange={(val) => setmobile(val.target.value)}
                     />
                   </div>
 
@@ -461,7 +514,7 @@ function Checkout() {
                         <span class="font-semibold">Total</span>
                         <span class="font-semibold">&#8377;21.98</span>
                       </div>
-                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full">
+                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={send}>
                         Checkout
                       </button>
                     </div>
