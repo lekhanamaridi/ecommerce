@@ -5,7 +5,7 @@ function Nav(){
     return(
         
         <div >
-            <div className="bg-green text-2xl font-semibold text-white flex items-center justify-around">
+            <div className="bg-green text-xl font-semibold text-white flex items-center justify-around">
 
                 <div>
                     <Link to='/'> <div >
@@ -25,8 +25,7 @@ function Nav(){
 
                         <Link to='/login'> <button className="mx-8 my-5"> Login </button> </Link>
 
-                        <Link to='/checkout'> <button className="mx-8 my-5"> Checkout </button> </Link>
-
+                        {/* <Link to='/checkout'> <button className="mx-8 my-5"> Checkout </button> </Link> */}
 
                     </div>
                     

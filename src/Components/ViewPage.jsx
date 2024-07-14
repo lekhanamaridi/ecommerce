@@ -39,7 +39,7 @@ function ViewPage() {
         <div class="container mx-auto flex flex-wrap min-w-full justify-center ">
             {
                 products.map((top)=>(
-                    
+                
                     <div class="flex flex-wrap p-1 m-1.5 ">
 
                         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

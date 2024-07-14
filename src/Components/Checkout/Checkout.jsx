@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Nav from '../Nav/Nav'
 
 function Checkout() {
-  let {category ,id}=useParams()
+  let {category ,id , quantity}=useParams()
 
 
   let [name, setname] = useState()
@@ -17,14 +17,12 @@ function Checkout() {
 
 
 
-
-
   let [products,setproducts] = useState([])
 
   let [price , setprice] = useState()
 
   let [totalprice , settotalprice] = useState()
-  let [totalquantity , settotalquantity] = useState(1)
+  let [totalquantity , settotalquantity] = useState(parseInt(quantity))
   let [tax , settax] = useState(0)
   let [Shipping ,setshipping] = useState(30)
 
@@ -52,6 +50,7 @@ function Checkout() {
     let percent = totalprice * 0.05;
     settax(parseFloat(percent.toFixed(2)));
 
+    // Calculate total checkout amount
     const totalamount = parseInt(totalprice) + parseInt(tax) + parseInt(Shipping)
     settotalamount(totalamount)
 
@@ -112,6 +111,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Your Name"
                       required
+                      onChange={(val) => setname(val.target.value)}
                     />
                   </div>
 
@@ -120,7 +120,7 @@ function Checkout() {
                       for="your_email"
                       class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Your email*{" "}
+                      Your email*
                     </label>
                     <input
                       type="email"
@@ -165,6 +165,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter City"
                       required
+                      onChange={(val) => setcity(val.target.value)}
                     />
                   </div>
 
@@ -173,7 +174,6 @@ function Checkout() {
                       for="pincode"
                       class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      {" "}
                       Pincode
                     </label>
 
@@ -200,6 +200,7 @@ function Checkout() {
                       class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                       placeholder="Enter Mobile number"
                       required
+                      onChange={(val) => setphone(val.target.value)}
                     />
                   </div>
 
@@ -285,7 +286,7 @@ function Checkout() {
                           class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
                         >
                           pay cash on delivery
-                        </p>
+                        </p> 
                       </div>
                     </div>
                   </div>
