@@ -11,7 +11,7 @@ function Features() {
                 <img src={pricetag} alt='icon' class="float-left scale-100 pl-5 pt-3"></img>
                 <div class="pt-2 pl-32">
                     <p class="text-xl text-black"><b><i>Best prices & offers</i></b></p> 
-                    <p class="text-base  text-gray-500">Orders $50 or more</p>
+                    <p class="text-base  text-gray-500">Orders &#8377;100 or more</p>
                 </div>
             </div>
 
