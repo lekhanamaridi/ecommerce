@@ -24,6 +24,7 @@ function CustomRouter() {
       <Route path="/categories" element={<Categories />} />
       <Route path="/checkout/:category/:id/:quantity" element={<Checkout />} />
       <Route path="/search/:query" element={<SearchResults/>} />
+      <Route path="/products" element={<ProductCard/>} />
     </Routes>
   )
 }
