@@ -9,8 +9,8 @@ import Searchbar from "../Search/Searchbar"
 function Home() {
   return (
     <div>
-      <Searchbar/>
       <Nav />
+      <Searchbar/>
       <HeroSection />
       <Featuredcategories />
       <Topproducts/>

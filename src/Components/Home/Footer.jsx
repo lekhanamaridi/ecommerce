@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import location from '../../Assets/Footerimages/location.svg'
-import contact from '../../Assets/Footerimages/contact.svg'
-import email from '../../Assets/Footerimages/email.svg'
+import location from '../../Assets/Footerimages/location.png'
+import contact from '../../Assets/Footerimages/contact.png'
+import email from '../../Assets/Footerimages/email.png'
 
 import cloth from'../../Assets/Footerimages/cloth.png'
 import electronic from'../../Assets/Footerimages/electronic.png'
@@ -20,21 +20,21 @@ function Footer() {
     };
 
     return(
-        <div class="flex flex-wrap items-center justify-around bg-green text-white mt-10">
+        <div class="flex flex-wrap items-center justify-evenly bg-green text-white mt-10">
 
             <div class="w-[500px] h-[500px]">
-                <h1 class="text-5xl ml-40 mt-14 font-semibold">EZ BUY</h1>
+                <h1 class="text-5xl ml-28 mt-14 font-semibold">EZ BUY</h1>
                 <div className="mt-10">
-                    <div class="flex items-center ml-4 pt-2">
-                        <img src={location} class="w-[30px] h-[30px] mt-3" alt='location'></img>
+                    <div class="flex items-center ml-4 mt-2">
+                        <img src={location} class="w-[25px] h-[25px] mt-3" alt='location'></img>
                         <p class="ml-4 text-xl">Address: STJIT, Ranebennur</p>
                     </div>
-                    <div class="flex items-center ml-4">
-                        <img src={contact} class="w-[30px] h-[30px] my-1" alt='Contact'></img>
+                    <div class="flex items-center ml-4 m-2">
+                        <img src={contact} class="w-[25px] h-[25px] my-1" alt='Contact'></img>
                         <p class="ml-4 text-xl">Call Us: 9672574287</p>
                     </div>
-                    <div class="flex items-center ml-4">
-                        <img src={email} class="w-[30px] h-[30px] my-1" alt='email'></img>
+                    <div class="flex items-center ml-4 m-2">
+                        <img src={email} class="w-[25px] h-[25px] my-1" alt='email'></img>
                         <p class="ml-4 text-xl">Email: ezbuy@gmail.com</p>
                     </div>
                 </div>
@@ -56,25 +56,27 @@ function Footer() {
 
             <div class="w-[500px] h-[500px]">
                 <h1 class="text-5xl pl-20 mt-14 font-semibold">Popular</h1>
-                <div class="flex items-center ml-4">
-                    <img src={cloth} class="w-[40px] h-[40px] my-2" alt='cloth'></img>
-                    <Link to='/products/clothes'><p class="pl-2 my-4 text-2xl">Clothes</p></Link>
-                </div>
-                <div class="flex items-center ml-4">
-                    <img src={electronic} class="w-[40px] h-[40px] my-3" alt='electronic'></img>
-                    <Link to='/products/electronics'><p class="pl-3 my-4 text-2xl">Electronics</p></Link>
-                </div>
-                <div class="flex items-center ml-4">
-                    <img src={shoe} class="w-[40px] h-[40px] my-3" alt='shoe'></img>
-                    <Link to='/products/footwears'><p class="pl-2 my-4 text-2xl">Footwear</p></Link>
-                </div>
-                <div class="flex items-center ml-4">
-                    <img src={watch} class="w-[40px] h-[40px] my-3" alt='watch'></img>
-                    <Link to='/products/watches'><p class="pl-2 my-4 text-2xl">Watches</p></Link>
-                </div>
-                <div class="flex items-center ml-4">
-                    <img src={mobile} class="w-[40px] h-[40px] my-3" alt='mobile'></img>
-                    <Link to='/products/mobiles'><p class="pl-2 my-4 text-2xl">Mobiles</p></Link>
+                <div className="ml-20 mt-4">
+                    <div class="flex items-center ml-4">
+                        <img src={cloth} class="w-[30px] h-[30px] my-2" alt='cloth'></img>
+                        <Link to='/products/clothes'><p class="pl-2 my-4 text-2xl">Clothes</p></Link>
+                    </div>
+                    <div class="flex items-center ml-4">
+                        <img src={electronic} class="w-[30px] h-[30px] my-3" alt='electronic'></img>
+                        <Link to='/products/electronics'><p class="pl-3 my-4 text-2xl">Electronics</p></Link>
+                    </div>
+                    <div class="flex items-center ml-4">
+                        <img src={shoe} class="w-[30px] h-[30px] my-3" alt='shoe'></img>
+                        <Link to='/products/footwears'><p class="pl-2 my-4 text-2xl">Footwear</p></Link>
+                    </div>
+                    <div class="flex items-center ml-4">
+                        <img src={watch} class="w-[30px] h-[30px] my-3" alt='watch'></img>
+                        <Link to='/products/watches'><p class="pl-2 my-4 text-2xl">Watches</p></Link>
+                    </div>
+                    <div class="flex items-center ml-4">
+                        <img src={mobile} class="w-[30px] h-[30px] my-3" alt='mobile'></img>
+                        <Link to='/products/mobiles'><p class="pl-2 my-4 text-2xl">Mobiles</p></Link>
+                    </div>
                 </div>
             </div>
         </div>
