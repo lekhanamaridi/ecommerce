@@ -15,17 +15,27 @@ function Checkout() {
   let [voucher , setvoucher] = useState()
 
   function send() {
+
     let data = {
       "name": name,
       "email": email,
       "country": country,
       "city": city,
       "pincode": pincode,
-      "phone": phone,
+      "mobile": phone,
       "address": address,
-      "voucher": voucher
-
+      "voucher": voucher,
+      "category": category,
+      "id": id,
+      "quantity": totalquantity,
+      "price" : totalamount,
     };
+
+    let data2 ={
+      "category": category,
+      "id": id,
+      "quantity": Remainingqunatity
+    }
 
     try {
       fetch(`${process.env.REACT_APP_SERVER}/checkout`, {
@@ -33,24 +43,30 @@ function Checkout() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.message) {
-            //   console.log(data.message);
-            alert(data.message);
-            if (data.message === "Data added successfully") {
-              window.location.href = "/";
-            }
-          } else if (data.sqlMessage) {
-            //   console.log(data.sqlMessage);
-            alert(data.sqlMessage);
-          }
-          // console.log(data.results);
-        })
-        .catch((error) => console.log(error));
+      .then((res) => res.json())
+      .then((data) =>  alert(data.message))
+      .catch((error) => console.log(error))
+
     } catch (error) {
       console.log("error :", error);
     }
+
+
+    try {
+      fetch(`${process.env.REACT_APP_SERVER}/updatequantity`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data2),
+      })
+      .then((res) => res.json())
+      // .then((data) =>  alert(data.message))
+      .catch((error) => console.log(error))
+
+    } catch (error) {
+      console.log("error :", error);
+    }
+
+    alert("Order Placed Sucessfully")
   }
 
 
@@ -60,6 +76,8 @@ function Checkout() {
 
   let [totalprice , settotalprice] = useState()
   let [totalquantity , settotalquantity] = useState(parseInt(quantity))
+  let [productquantity , setproductquantity] = useState()
+  let [Remainingqunatity , setremainingquantity] = useState()
   let [tax , settax] = useState(0)
   let [Shipping ,setshipping] = useState(30)
 
@@ -71,11 +89,18 @@ function Checkout() {
       settotalquantity(1)
     } else{
       settotalquantity(totalquantity - 1)
+      setremainingquantity(Remainingqunatity+1)
+      
     }
   }
 
   function add(){
-    settotalquantity(totalquantity + 1)
+    if(totalquantity >= productquantity){
+      settotalquantity(productquantity)
+    } else{
+      settotalquantity(totalquantity + 1)
+      setremainingquantity(Remainingqunatity-1)
+    }
   }
 
   useEffect(() => {
@@ -112,6 +137,8 @@ function Checkout() {
       console.log(val)
       setproducts(val)
       setprice(val[0].price)
+      setremainingquantity((val[0].quantity) - quantity)
+      setproductquantity(val[0].quantity)
     })
     .catch((error) => console.error(error))
   },[id, category])
@@ -526,6 +553,7 @@ function Checkout() {
                                   <span class="text-center w-8">{totalquantity}</span>
                                   <button class="border rounded-md py-2 px-4 ml-2" onClick={add}>+</button>
                                 </div>
+                                <span className='text-sm ml-12' > Remaing: {Remainingqunatity}</span>
                               </td>
                               <td class="py-4 mx-4">&#8377; {totalprice}</td>
                             </tr>
@@ -557,7 +585,8 @@ function Checkout() {
                         <span class="font-semibold">Total</span>
                         <span class="font-semibold">&#8377;{totalamount}</span>
                       </div>
-                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={send}>
+                      <button class="bg-green text-white py-2 px-4 rounded-lg mt-4 w-full"
+                        onClick={send}>
                         Checkout
                       </button>
                     </div>

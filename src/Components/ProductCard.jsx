@@ -81,7 +81,13 @@ function ProductCard() {
                 onChange={(val) => setquantity(val.target.value)}
               />
             </div>
-            <div className="flex space-x-2 mt-8">
+            <div>
+              Remaining : {product.quantity}
+            </div>
+
+            {
+              product.quantity > 0 ? 
+              <div className="flex space-x-2 mt-8">
               <Link to={`/checkout/${category}/${id}/${quantity}`}>
                 <button className="flex items-center px-6 py-3 bg-green  text-white font-semibold rounded hover:bg-teal transition-all">
                   Buy Now
@@ -90,7 +96,9 @@ function ProductCard() {
               {/* <button className="flex items-center px-4 py-2 border rounded">
                 Add to cart
               </button> */}
-            </div>
+            </div>  : <div className="text-red-500 text-4xl font-bold mt-4">Out of Stock</div>
+            }
+            
           </div>
         </div>
       ))}
