@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import Nav from '../Nav/Nav'
 
 function Checkout() {
-  let {category ,id , quantity}=useParams()
+
+  let {category , id , quantity}=useParams()
 
   let [name, setname] = useState()
   let [email,setemail] = useState()
@@ -44,7 +45,7 @@ function Checkout() {
         body: JSON.stringify(data),
       })
       .then((res) => res.json())
-      .then((data) =>  alert(data.message))
+      // .then((data) =>  alert(data.message))
       .catch((error) => console.log(error))
 
     } catch (error) {
@@ -67,6 +68,7 @@ function Checkout() {
     }
 
     alert("Order Placed Sucessfully")
+    window.location.href = "/"
   }
 
 
@@ -75,9 +77,11 @@ function Checkout() {
   let [price , setprice] = useState()
 
   let [totalprice , settotalprice] = useState()
+
   let [totalquantity , settotalquantity] = useState(parseInt(quantity))
   let [productquantity , setproductquantity] = useState()
   let [Remainingqunatity , setremainingquantity] = useState()
+  
   let [tax , settax] = useState(0)
   let [Shipping ,setshipping] = useState(30)
 
@@ -609,4 +613,5 @@ function Checkout() {
     </div>
   );
 }
+
 export default Checkout;
