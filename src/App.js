@@ -17,6 +17,7 @@ function App() {
         duration: 500,
         easing: 'ease-in-sine',
         delay: 0,
+        once:true,
       }
     )
     Aos.refresh();
