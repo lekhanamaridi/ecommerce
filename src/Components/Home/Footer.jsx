@@ -10,6 +10,8 @@ import shoe from'../../Assets/Footerimages/shoe.png'
 import watch from'../../Assets/Footerimages/watch.png'
 import mobile from'../../Assets/Footerimages/mobile.png'
 
+import logo from '../../Assets/Logo/ez white.png'
+
 function Footer() {
 
     const scrollToTop = () => {
@@ -23,8 +25,9 @@ function Footer() {
         <div class="flex flex-wrap items-center justify-evenly bg-green text-white mt-10">
 
             <div class="w-[500px] h-[500px]">
-                <h1 class="text-5xl ml-28 mt-14 font-semibold">EZ BUY</h1>
-                <div className="mt-10">
+                {/* <h1 class="text-5xl ml-28 mt-14 font-semibold">EZ BUY</h1> */}
+                <img src={logo} alt="Ez buy" className="w-64 ml-12 mt-10" />
+                <div className="mt-2">
                     <div class="flex items-center ml-4 mt-2">
                         <img src={location} class="w-[25px] h-[25px] mt-3" alt='location'></img>
                         <p class="ml-4 text-xl">Address: STJIT, Ranebennur</p>

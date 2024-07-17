@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from '../../Assets/Logo/ez white.png'
 
 function Nav(){
 
@@ -9,8 +10,7 @@ function Nav(){
 
                 <div>
                     <Link to='/'> <div >
-                        <h1>Ez Buy</h1>
-                        {/* <img className="logo" src={logo} alt="" /> */}
+                        <img className="logo w-20" src={logo} alt="" />
                     </div> </Link>
                 </div>
 
