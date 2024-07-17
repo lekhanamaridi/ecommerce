@@ -23,13 +23,13 @@ function Categories() {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <Nav></Nav>
-      <h1 class="text-5xl font-bold text-green-600 m-6 text-center">Categories</h1>
+      <h1 class="text-5xl font-bold text-green-600 m-6 text-center" data-aos="fade-up">Categories</h1>
         <div class="container mx-auto min-w-full flex flex-wrap justify-around gap-8">
-          {categories.map((cat) => (
+          {categories.map((cat , index) => (
             <Link to={`/products/${cat.name}`}>
-            <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg w-[280px] h-[280px]">
+            <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg w-[280px] h-[280px]" data-aos="zoom-in-up"  data-aos-delay={(index + 1) * 100} key={index}>
               <div class="relative pl-14">
                 <img class="w-[180px] h-[180px] aspect-w-4 aspect-h-5 object-contain" src={cat.images} alt="Products"></img>
               </div>

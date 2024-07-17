@@ -25,7 +25,7 @@ function Footer() {
         <div class="flex flex-wrap items-center justify-evenly bg-green text-white mt-10">
 
             <div class="w-[500px] h-[500px]">
-                {/* <h1 class="text-5xl ml-28 mt-14 font-semibold">EZ BUY</h1> */}
+                
                 <img src={logo} alt="Ez buy" className="w-64 ml-12 mt-10" />
                 <div className="mt-2">
                     <div class="flex items-center ml-4 mt-2">

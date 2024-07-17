@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
-    <div class="flex my-4">
+    <div class="flex my-4 overflow-hidden">
 
-        <div className="bg-stone-100 mx-4 h-[680px] w-[1600px] rounded-lg p-8">
+        <div className="bg-stone-100 mx-4 h-[680px] w-[1600px] rounded-lg p-8"  data-aos="fade-right">
             <h2 className='font-bold text-5xl w-[500px] top-[100px] relative leading-[55px]' >Elevate Your Mobile Experience with Samsung S24 Ultra</h2>
 
             <img src={mobile} alt="mobile" className='relative bg-clip-content left-[500px] top-[-50px]' />
@@ -18,7 +18,7 @@ function HeroSection() {
             
         </div>
 
-        <div className="mx-2 my-[-12px]">
+        <div className="mx-2 my-[-12px]" data-aos="fade-left">
 
             <div className=" bg-lime-100 my-4 h-[330px] w-[580px] rounded-lg p-8">
                 <h2 className='font-semibold text-2xl mt-4'>Discover Our Exquisite <br /> Watch Collection</h2> 

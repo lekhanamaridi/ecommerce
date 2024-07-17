@@ -25,12 +25,12 @@ function Topproducts() {
     
     return( 
         <div className="mt-14">
-            <h1 class="text-3xl font-bold text-gray-900 m-4 ml-24">Top Products</h1>
+            <h1 class="text-3xl font-bold text-gray-900 m-4 ml-24" data-aos="fade-up">Top Products</h1>
             <div class="container mx-auto flex flex-wrap min-w-full justify-center ">
             {
-                products.map((top)=>(
+                products.map((top , index)=>(
                     
-                    <div class="flex flex-wrap p-1 m-1.5 ">
+                    <div class="flex flex-wrap p-1 m-1.5 " data-aos="zoom-in-up"  data-aos-delay={(index + 1) * 100} key={index}>
 
                         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow s">
                        

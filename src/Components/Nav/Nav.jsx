@@ -5,8 +5,8 @@ function Nav(){
 
     return(
         
-        <div >
-            <div className="bg-green text-xl font-semibold text-white flex items-center justify-around">
+        <div>
+            <div className="bg-green text-xl font-semibold text-white flex items-center justify-around z-50">
 
                 <div>
                     <Link to='/'> <div >

@@ -23,11 +23,11 @@ function Featuredcategories() {
 
   return (
     <div className="mt-8">
-      <h1 class="text-3xl font-bold text-gray-900 m-4 ml-5">Featured Categories</h1>
-        <div class="container mx-auto flex  min-w-full justify-center">
-          {categories.map((cat) => (
+      <h1 class="text-3xl font-bold text-gray-900 m-4 ml-5"  data-aos="fade-up">Featured Categories</h1>
+        <div class="container mx-auto flex  min-w-full justify-center" >
+          {categories.map((cat , index) => (
             <Link to={`/products/${cat.name}`}>
-              <div class="max-w-md mx-2 rounded-md overflow-hidden shadow-md hover:shadow-lg w-[150px] h-[180px]text-wrap">
+              <div class="max-w-md mx-2 rounded-md overflow-hidden shadow-md hover:shadow-lg w-[150px] h-[180px]text-wrap" data-aos="fade-up"  data-aos-delay={(index + 1) * 100} key={index} >
                 <div class="flex justify-center">
                   <img class="w-[100px] h-[100px] aspect-w-4 aspect-h-5 object-contain hover:scale-110" src={cat.images} alt="Products"></img>
                 </div>

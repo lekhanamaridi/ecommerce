@@ -37,11 +37,11 @@ function ViewPage() {
         <div class="container mx-auto flex flex-wrap min-w-full justify-center ">
 
             {
-                products.map((top)=>(
+                products.map((top , index )=>(
                 
-                    <div class="flex flex-wrap p-1 m-1.5 ">
+                    <div class="flex flex-wrap p-1 m-1.5 " data-aos="flip-left"  data-aos-delay={(index + 1) * 100} key={index}>
 
-                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" >
                        
                             <img class="p-8 rounded-[40px] w-72 h-72 hover:scale-110 transition-all object-contain" src={top.images} alt={top.name} />
                         
