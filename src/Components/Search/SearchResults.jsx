@@ -37,7 +37,7 @@ function SearchResults() {
         <Searchbar />
         <div class="container mx-auto flex flex-wrap min-w-full justify-center ">
             {
-                products.map((top)=>(
+                products.length > 0 ? ( products.map((top)=>(
                     <div class="flex flex-wrap p-1 m-1.5 ">
 
                         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -63,7 +63,11 @@ function SearchResults() {
                             </div>
                         </div>
                     </div>
-                ))
+                ))) : (
+                    <div className='flex justify-center items-center h-[500px]'>
+                        <h1 className='text-3xl font-bold text-gray-900'>No Products Found</h1>
+                    </div>
+                )
             }
             
             </div>

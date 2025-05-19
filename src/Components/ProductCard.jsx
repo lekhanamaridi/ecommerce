@@ -22,12 +22,12 @@ function ProductCard() {
       body: JSON.stringify(bodyData),
       headers: { "Content-Type": "application/json" },
     })
-      .then((res) => res.json())
-      .then((val) => {
-        console.log(val);
-        setproducts(val);
-      })
-      .catch((error) => console.error(error));
+    .then((res) => res.json())
+    .then((val) => {
+      console.log(val);
+      setproducts(val);
+    })
+    .catch((error) => console.error(error));
   }, [id , category]);
 
   return (
